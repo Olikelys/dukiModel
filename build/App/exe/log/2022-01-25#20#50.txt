@@ -1,0 +1,2 @@
+(2022-01-25 20:50:42 周二) Warning: qrc:/main.qml:32: TypeError: Property 'qDebug_Info' of object Log4Qml(0xe2fc80) is not a function File:(qrc:/main.qml) Line:(32)
+(2022-01-25 20:50:42 周二) Warning: qrc:/main.qml:32: TypeError: Property 'qDebug_Info' of object Log4Qml(0xe2fc80) is not a function File:(qrc:/main.qml) Line:(32)

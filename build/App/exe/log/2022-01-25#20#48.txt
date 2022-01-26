@@ -1,0 +1,5 @@
+(2022-01-25 20:48:43 周二) Warning: qrc:/main.qml:32: ReferenceError: log4Qml is not defined File:(qrc:/main.qml) Line:(32)
+(2022-01-25 20:48:44 周二) Warning: qrc:/main.qml:32: ReferenceError: log4Qml is not defined File:(qrc:/main.qml) Line:(32)
+(2022-01-25 20:48:44 周二) Warning: qrc:/main.qml:32: ReferenceError: log4Qml is not defined File:(qrc:/main.qml) Line:(32)
+(2022-01-25 20:49:28 周二) Warning: qrc:/main.qml:0: ReferenceError: log4Qml is not defined File:(qrc:/main.qml) Line:(0)
+(2022-01-25 20:49:29 周二) Warning: qrc:/main.qml:0: ReferenceError: log4Qml is not defined File:(qrc:/main.qml) Line:(0)

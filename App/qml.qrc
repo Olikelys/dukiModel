@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>QML/Pane/TitlePane.qml</file>
+        <file>QML/Pane/MenuPane.qml</file>
+        <file>QML/Pane/SubMenuPane.qml</file>
+        <file>QML/Pane/MainBobyPane.qml</file>
+    </qresource>
+</RCC>

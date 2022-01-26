@@ -1,0 +1,25 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Images/logo/logo-redblue-512.png</file>
+        <file>Images/logo/logo-white-512.png</file>
+        <file>Images/logo/logo-redblue-128.ico</file>
+        <file>Images/logo/logo-white-128.ico</file>
+        <file>Images/Window/flower.jpg</file>
+        <file>Images/Window/window-minimize.png</file>
+        <file>Images/Window/window-close.png</file>
+        <file>Images/Window/window-maximize.png</file>
+        <file>Images/Window/window-restore.png</file>
+        <file>Images/Window/help.png</file>
+        <file>Images/Window/setting-filling.png</file>
+        <file>Images/Window/server (1).png</file>
+        <file>Images/Window/server.png</file>
+        <file>Images/Window/key (1).png</file>
+        <file>Images/Window/key.png</file>
+        <file>Images/Window/link (1).png</file>
+        <file>Images/Window/link.png</file>
+        <file>Images/Window/robot (1).png</file>
+        <file>Images/Window/robot.png</file>
+        <file>Images/Window/shapes (1).png</file>
+        <file>Images/Window/shapes.png</file>
+    </qresource>
+</RCC>
