@@ -9,7 +9,7 @@ RC_FILE =./Images/logo/logo.rc
 
 
 
-QT += quick
+QT += quick serialport
 
 CONFIG += c++11
 
@@ -46,6 +46,7 @@ include(../Modules/Modules.pri)
 
 #文件路径
 INSTALLS += \
+           $$PWD
 
 #头文件
 HEADERS += \

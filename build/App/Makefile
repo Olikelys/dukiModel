@@ -239,6 +239,7 @@ Makefile: ../../App/App.pro ../../../../software/QT/5.15.2/mingw81_64/mkspecs/wi
 		../../Libs/Libs.pri \
 		../../Plugins/Plugins.pri \
 		../../Tools/Tools.pri \
+		../../Modules/Link/Link.pri \
 		../../Modules/Modules.pri \
 		../../../../software/QT/5.15.2/mingw81_64/mkspecs/features/resolve_config.prf \
 		../../../../software/QT/5.15.2/mingw81_64/mkspecs/features/exclusive_builds_post.prf \
@@ -264,6 +265,7 @@ Makefile: ../../App/App.pro ../../../../software/QT/5.15.2/mingw81_64/mkspecs/wi
 		../../../../software/QT/5.15.2/mingw81_64/lib/Qt5QmlModels.prl \
 		../../../../software/QT/5.15.2/mingw81_64/lib/Qt5Qml.prl \
 		../../../../software/QT/5.15.2/mingw81_64/lib/Qt5Network.prl \
+		../../../../software/QT/5.15.2/mingw81_64/lib/Qt5SerialPort.prl \
 		../../../../software/QT/5.15.2/mingw81_64/lib/Qt5Core.prl \
 		../../../../software/QT/5.15.2/mingw81_64/lib/qtmain.prl \
 		../../../../software/QT/5.15.2/mingw81_64/mkspecs/features/build_pass.prf \
@@ -440,6 +442,7 @@ Makefile: ../../App/App.pro ../../../../software/QT/5.15.2/mingw81_64/mkspecs/wi
 ../../Libs/Libs.pri:
 ../../Plugins/Plugins.pri:
 ../../Tools/Tools.pri:
+../../Modules/Link/Link.pri:
 ../../Modules/Modules.pri:
 ../../../../software/QT/5.15.2/mingw81_64/mkspecs/features/resolve_config.prf:
 ../../../../software/QT/5.15.2/mingw81_64/mkspecs/features/exclusive_builds_post.prf:
@@ -465,6 +468,7 @@ Makefile: ../../App/App.pro ../../../../software/QT/5.15.2/mingw81_64/mkspecs/wi
 ../../../../software/QT/5.15.2/mingw81_64/lib/Qt5QmlModels.prl:
 ../../../../software/QT/5.15.2/mingw81_64/lib/Qt5Qml.prl:
 ../../../../software/QT/5.15.2/mingw81_64/lib/Qt5Network.prl:
+../../../../software/QT/5.15.2/mingw81_64/lib/Qt5SerialPort.prl:
 ../../../../software/QT/5.15.2/mingw81_64/lib/Qt5Core.prl:
 ../../../../software/QT/5.15.2/mingw81_64/lib/qtmain.prl:
 ../../../../software/QT/5.15.2/mingw81_64/mkspecs/features/build_pass.prf:

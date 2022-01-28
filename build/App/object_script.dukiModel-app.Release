@@ -6,6 +6,10 @@ release/ThreadPool.o
 release/Trans.o
 release/TaoFrameLessView_win.o
 release/log4qml.o
+release/RConnectAbstract.o
+release/RConnectManager.o
+release/RConnectSerialPort.o
+release/RConnectUdp.o
 release/main.o
 release/qrc_TaoQuick.o
 release/qrc_qml.o
@@ -18,3 +22,6 @@ release/moc_ThreadPool.o
 release/moc_ThreadWorkerController.o
 release/moc_Trans.o
 release/moc_log4qml.o
+release/moc_RConnectAbstract.o
+release/moc_RConnectManager.o
+release/moc_RConnectSerialPort.o

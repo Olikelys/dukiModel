@@ -6,6 +6,10 @@ debug/ThreadPool.o
 debug/Trans.o
 debug/TaoFrameLessView_win.o
 debug/log4qml.o
+debug/RConnectAbstract.o
+debug/RConnectManager.o
+debug/RConnectSerialPort.o
+debug/RConnectUdp.o
 debug/main.o
 debug/qrc_qml.o
 debug/qrc_images.o
@@ -17,3 +21,6 @@ debug/moc_ThreadPool.o
 debug/moc_ThreadWorkerController.o
 debug/moc_Trans.o
 debug/moc_log4qml.o
+debug/moc_RConnectAbstract.o
+debug/moc_RConnectManager.o
+debug/moc_RConnectSerialPort.o

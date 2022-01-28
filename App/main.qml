@@ -36,7 +36,7 @@ Item {
     }
     // 是最上面的框框 我吐了
     TitlePane {
-        id: title
+        id: titlePane
         width: parent.width
         height: 30
     }
@@ -45,7 +45,7 @@ Item {
         id: content
         width: parent.width
         anchors {
-            top: title.bottom
+            top: titlePane.bottom
             bottom: parent.bottom
         }
         //这个才是小花花
@@ -100,13 +100,17 @@ Item {
                 //
                 onPositionChanged: {
                     if(pressed){
-                        if(parent.x>=0 && parent.x+parent.width <= rightPaneItem.width){
+                        if( subMenuPane.width<=700 &&  parent.x>=0 ){
                         parent.x += mouseX - lastX
                         //console.log("width="+ rightPaneItem.width)
                         }
                         if(parent.x<0){
                             parent.x=0
                         }
+                        if(subMenuPane.width >= 700){
+                            subMenuMainBoobyLine.x = 700
+                        }
+
                         //console.log("width="+ rightPaneItem.width)
 
 
@@ -123,6 +127,12 @@ Item {
         }
 
 
+    }
+
+    //按键点击的水花
+    ClickShow {
+        anchors.fill: parent
+        anchors.margins: 6
     }
 
 

@@ -7,6 +7,14 @@ Rectangle{
     color: "#EEEEEE"
 
 
-
+//   Button{
+//       width: 50
+//       height: 50
+//       onClicked:{
+//           if(subMenuPane.width >= 700){
+//               subMenuMainBoobyLine.x = 700
+//           }
+//       }
+//   }
 
 }

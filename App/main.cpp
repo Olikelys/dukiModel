@@ -3,12 +3,26 @@
 #include <QIcon>
 #include <QQmlContext>
 #include <QDir>
+#include <QTime>
+#include <QElapsedTimer>
+
+
 
 #include "Frameless/TaoFrameLessView.h"
 #include "QmlLog4/log4qml.h"
+#include "RModulesConfig.h"
+
 
 int main(int argc, char *argv[])
 {
+    QElapsedTimer debugTime;
+    debugTime.start();
+
+
+
+
+
+
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 #endif
@@ -19,8 +33,8 @@ int main(int argc, char *argv[])
 
     //获取应用地址
     const auto appPath = QDir::cleanPath(app.applicationDirPath());
-    qDebug()<<"appPath"<<appPath;
-    qDebug()<<"workpath:"<<QDir::currentPath();
+   // qDebug()<<"appPath"<<appPath;
+    //qDebug()<<"workpath:"<<QDir::currentPath();
    // Log4Qml log4qml("appPath");
 
 
@@ -36,9 +50,15 @@ int main(int argc, char *argv[])
     view.engine()->addImportPath(TaoQuickImportPath);
     //改存储的地方
     view.engine()->setOfflineStoragePath(appPath);
+
+
+    RMODULESCONFIG_INIT;
+    //qmlRegisterType<RLink::RConnectManager>("RLink",1,0,"RConnectManager");
+
+
     const QUrl url(QStringLiteral("qrc:/main.qml"));
     view.setSource(url);
     view.show();
-
+    qInfo()<<"启动时间"<<debugTime.elapsed();
     return app.exec();
 }
