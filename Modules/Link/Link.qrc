@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/Link">
+        <file>RConnectManagerView.qml</file>
+        <file>qmldir</file>
+        <file>RConnectSerialPortView.qml</file>
+        <file>RConnectUdpView.qml</file>
+        <file>RConnectLocalDataView.qml</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>qtquickcontrols2.conf</file>
+    </qresource>
+</RCC>

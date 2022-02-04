@@ -260,6 +260,7 @@ Makefile: ../../App/App.pro ../../../../software/QT/5.15.2/mingw81_64/mkspecs/wi
 		../../../../software/QT/5.15.2/mingw81_64/mkspecs/features/yacc.prf \
 		../../../../software/QT/5.15.2/mingw81_64/mkspecs/features/lex.prf \
 		../../App/App.pro \
+		../../../../software/QT/5.15.2/mingw81_64/lib/Qt5QuickControls2.prl \
 		../../../../software/QT/5.15.2/mingw81_64/lib/Qt5Quick.prl \
 		../../../../software/QT/5.15.2/mingw81_64/lib/Qt5Gui.prl \
 		../../../../software/QT/5.15.2/mingw81_64/lib/Qt5QmlModels.prl \
@@ -269,6 +270,7 @@ Makefile: ../../App/App.pro ../../../../software/QT/5.15.2/mingw81_64/mkspecs/wi
 		../../../../software/QT/5.15.2/mingw81_64/lib/Qt5Core.prl \
 		../../../../software/QT/5.15.2/mingw81_64/lib/qtmain.prl \
 		../../../../software/QT/5.15.2/mingw81_64/mkspecs/features/build_pass.prf \
+		../../Modules/Link/Link.qrc \
 		../../App/qml.qrc \
 		../../App/images.qrc \
 		../../Libs/3rdparty/TaoQuick/TaoQuick/TaoQuick.qrc
@@ -463,6 +465,7 @@ Makefile: ../../App/App.pro ../../../../software/QT/5.15.2/mingw81_64/mkspecs/wi
 ../../../../software/QT/5.15.2/mingw81_64/mkspecs/features/yacc.prf:
 ../../../../software/QT/5.15.2/mingw81_64/mkspecs/features/lex.prf:
 ../../App/App.pro:
+../../../../software/QT/5.15.2/mingw81_64/lib/Qt5QuickControls2.prl:
 ../../../../software/QT/5.15.2/mingw81_64/lib/Qt5Quick.prl:
 ../../../../software/QT/5.15.2/mingw81_64/lib/Qt5Gui.prl:
 ../../../../software/QT/5.15.2/mingw81_64/lib/Qt5QmlModels.prl:
@@ -472,6 +475,7 @@ Makefile: ../../App/App.pro ../../../../software/QT/5.15.2/mingw81_64/mkspecs/wi
 ../../../../software/QT/5.15.2/mingw81_64/lib/Qt5Core.prl:
 ../../../../software/QT/5.15.2/mingw81_64/lib/qtmain.prl:
 ../../../../software/QT/5.15.2/mingw81_64/mkspecs/features/build_pass.prf:
+../../Modules/Link/Link.qrc:
 ../../App/qml.qrc:
 ../../App/images.qrc:
 ../../Libs/3rdparty/TaoQuick/TaoQuick/TaoQuick.qrc:

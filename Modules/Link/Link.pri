@@ -3,7 +3,16 @@
 
 #记得在pro文件上添加   Qt += serialport
 INCLUDEPATH +=\
-         $$PWD
+         $$PWD/
+
+QML2_IMPORT_PATH +=  $$PWD
+QML_IMPORT_PATH  +=  $$PWD
+QML_DESIGNER_IMPORT_PATH = $$PWD
+
+
+
+DEFINES +=  RLinkImportPath=$$PWD
+
 
 
 
@@ -20,5 +29,9 @@ HEADERS += \
     $$PWD/RConneectUdp.h
 
 DISTFILES += \
-    $$PWD/RConnectManagerView.qml
+
+
+
+RESOURCES += \
+    $$PWD/Link.qrc
 

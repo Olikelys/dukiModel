@@ -11,6 +11,7 @@ debug/RConnectManager.o
 debug/RConnectSerialPort.o
 debug/RConnectUdp.o
 debug/main.o
+debug/qrc_Link.o
 debug/qrc_qml.o
 debug/qrc_images.o
 debug/moc_TaoFrameLessView.o

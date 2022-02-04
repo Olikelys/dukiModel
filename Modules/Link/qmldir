@@ -1,0 +1,2 @@
+module RLink.Module
+RConnectManagerView 1.0  ./RConnectManagerView.qml

@@ -9,7 +9,7 @@ RC_FILE =./Images/logo/logo.rc
 
 
 
-QT += quick serialport
+QT += quick serialport quickcontrols2
 
 CONFIG += c++11
 

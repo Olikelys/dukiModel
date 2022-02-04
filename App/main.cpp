@@ -5,6 +5,7 @@
 #include <QDir>
 #include <QTime>
 #include <QElapsedTimer>
+#include <QQuickStyle>
 
 
 
@@ -30,6 +31,7 @@ int main(int argc, char *argv[])
     QCoreApplication::setOrganizationName("runhey");
     QCoreApplication::setOrganizationDomain("duki.cc");
     QCoreApplication::setApplicationName("dukiModel");
+    //QQuickStyle::setStyle("Material");
 
     //获取应用地址
     const auto appPath = QDir::cleanPath(app.applicationDirPath());
@@ -48,12 +50,14 @@ int main(int argc, char *argv[])
     //view.rootContext()->setContextProperty("log4Qml",&log4qml);
     //导包
     view.engine()->addImportPath(TaoQuickImportPath);
+    qDebug()<<TaoQuickImportPath;
+    view.engine()->addImportPath("qrc:/Link/");
     //改存储的地方
     view.engine()->setOfflineStoragePath(appPath);
 
 
     RMODULESCONFIG_INIT;
-    //qmlRegisterType<RLink::RConnectManager>("RLink",1,0,"RConnectManager");
+
 
 
     const QUrl url(QStringLiteral("qrc:/main.qml"));

@@ -135,6 +135,11 @@ Item {
         anchors.margins: 6
     }
 
+    Component.onCompleted:{
+
+
+    }
+
 
 
 

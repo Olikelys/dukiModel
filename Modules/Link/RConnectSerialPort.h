@@ -1,6 +1,7 @@
 #ifndef RCONNECTSERIALPORT_H
 #define RCONNECTSERIALPORT_H
 #include<QtSerialPort/QSerialPort>
+#include<QtSerialPort/QSerialPortInfo>
 #include"RConnectAbstract.h"
 
 
@@ -15,14 +16,15 @@ explicit RConnectSerialPort(QObject *parent = nullptr);
 
 public:
     virtual int Connect();
+            int Connect(QString portName,QString baudRate,QString dataBits,QString parity,QString stopBits,QString flowControl);
     virtual int DisConnect();
     virtual int Read();
     virtual int Write();
-    int Write(QByteArray byteArray);
-
+            int Write(QByteArray byteArray);
 
 private:
     QSerialPort * m_serial = nullptr;
+    QSerialPortInfo * m_serialInfo = nullptr;
 };
 
 }

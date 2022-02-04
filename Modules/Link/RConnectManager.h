@@ -17,21 +17,20 @@ class RConnectManager : public RConnectAbstract
     Q_OBJECT
 public:
 explicit RConnectManager(QObject *parent = nullptr );
-//~RConnectManager();
+~RConnectManager();
 
 public:
-virtual int Connect();
-virtual int DisConnect();
-virtual int Read();
-virtual int Write();
+Q_INVOKABLE virtual int Connect();
+Q_INVOKABLE         int Connect(QString portName,QString baudRate,QString dataBits,QString parity,QString stopBits,QString flowControl);
+Q_INVOKABLE virtual int DisConnect();
+Q_INVOKABLE virtual int Read();
+Q_INVOKABLE virtual int Write();
 
 
 
 private:
    int m_connectProtocol = 1;     //是串口连接还是udp
-   RConnectSerialPort *m_rConnectSerialPort; //
-
-
+   RConnectSerialPort *m_rConnectSerialPort =nullptr;
 };
 
 }
