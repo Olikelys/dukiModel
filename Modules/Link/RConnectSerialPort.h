@@ -12,7 +12,20 @@ class RConnectSerialPort : public RConnectAbstract
     Q_OBJECT
 public:
 explicit RConnectSerialPort(QObject *parent = nullptr);
-    //~RConnectSerialPort();
+       ~RConnectSerialPort();
+
+signals:
+        void sigGetSerialPortName();
+        void sigSetSerialPortName(QStringList serialPortName);
+
+public slots :
+            int SlotGetSerialPortName();
+
+
+
+
+
+
 
 public:
     virtual int Connect();
@@ -22,9 +35,10 @@ public:
     virtual int Write();
             int Write(QByteArray byteArray);
 
+
+
 private:
     QSerialPort * m_serial = nullptr;
-    QSerialPortInfo * m_serialInfo = nullptr;
 };
 
 }

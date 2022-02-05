@@ -50,7 +50,6 @@ int main(int argc, char *argv[])
     //view.rootContext()->setContextProperty("log4Qml",&log4qml);
     //导包
     view.engine()->addImportPath(TaoQuickImportPath);
-    qDebug()<<TaoQuickImportPath;
     view.engine()->addImportPath("qrc:/Link/");
     //改存储的地方
     view.engine()->setOfflineStoragePath(appPath);

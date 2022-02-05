@@ -9,7 +9,14 @@ RConnectSerialPort::RConnectSerialPort(QObject *parent)
 {
     Q_UNUSED(parent)
     m_serial = new QSerialPort;
-    m_serialInfo = new QSerialPortInfo;
+
+
+    connect(this,SIGNAL(sigGetSerialPortName()),this,SLOT(SlotGetSerialPortName()));
+}
+
+RConnectSerialPort::~RConnectSerialPort()
+{
+    delete m_serial;
 }
 
 
@@ -161,7 +168,7 @@ int RConnectSerialPort::Connect(QString portName, \
         return 60;
     }
     }
-
+    qDebug()<<"连接成功";
     return 0;
 }
 
@@ -195,6 +202,33 @@ int RConnectSerialPort::Write(QByteArray byteArray)
 }
 
 
+
+
+
+int RConnectSerialPort::SlotGetSerialPortName()
+{
+
+    QStringList serialPortName;
+    foreach( QSerialPortInfo serialInfo ,QSerialPortInfo::availablePorts()  )
+    {
+        serialPortName.append(serialInfo.portName());
+    }
+//    foreach(QString str, serialPortName)
+//    {
+//        qDebug()<<"33"<<str;
+//    }
+
+    emit sigSetSerialPortName( serialPortName );
+//    foreach(QSerialPortInfo serialInfo ,QSerialPortInfo::availablePorts() )
+//    {
+//        qDebug()<<"portName:"<<serialInfo.portName();
+//        qDebug()<<"description:"<<serialInfo.description();
+//        qDebug()<<"manufacturer:"<<serialInfo.manufacturer();
+//        qDebug()<<"serialnumber:"<<serialInfo.serialNumber();
+//        //qDebug()<<"systemlocation:"<<m_serialInfo.systemlocation();
+//    }
+    return 0;
+}
 
 
 

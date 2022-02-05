@@ -3,12 +3,26 @@ import QtQuick.Controls 2.12
 import QtQuick.Controls.Material 2.12
 import QtQuick.Layouts 1.15
 import QtQuick.XmlListModel 2.12
-import QtQml.Models 2.12
+import Qt.labs.settings 1.0
 
 Rectangle {
     anchors.fill: parent
 
-    //signal getSerialPortName()
+    Settings{
+        property alias rCSPVGL_BaudRateComboBox_currentIndex:    rCSPVGL_BaudRateComboBox.currentIndex
+        property alias rCSPVGL_ParityComboBox_currentIndex:      rCSPVGL_ParityComboBox.currentIndex
+        property alias rCSPVGL_DataBitsComboBox_currentIndex:    rCSPVGL_DataBitsComboBox.currentIndex
+        property alias rCSPVGL_StopBitsComboBox_currentIndex:    rCSPVGL_StopBitsComboBox.currentIndex
+        property alias rCSPVGL_FlowControlComboBox_currentIndex: rCSPVGL_FlowControlComboBox.currentIndex
+    }
+    property alias rCSPVGL_PortNameComboBox_currentText: rCSPVGL_PortNameComboBox.currentText
+    property alias rCSPVGL_BaudRateComboBox_currentText: rCSPVGL_BaudRateComboBox.currentText
+    property alias rCSPVGL_ParityComboBox_currentText: rCSPVGL_ParityComboBox.currentText
+    property alias rCSPVGL_DataBitsComboBox_currentText: rCSPVGL_DataBitsComboBox.currentText
+    property alias rCSPVGL_StopBitsComboBox_currentText: rCSPVGL_StopBitsComboBox.currentText
+    property alias rCSPVGL_FlowControlComboBox_currentText: rCSPVGL_FlowControlComboBox.currentText
+
+
 
     Rectangle{
         id: rCSPV_Label
@@ -46,14 +60,28 @@ Rectangle {
         ComboBox{
             id:rCSPVGL_PortNameComboBox
             Layout.alignment:Qt.AlignRight
-            //Material.background: "transparent"
-            model:["COM1","COM2","COM3"]
+//            model: ListModel{
+//                ListElement{Qstring: "COM11"}
+//                ListElement{Qstring: "COM22"}
+//            }
             onActivated: {
                             //console.log(currentIndex)
 
                         }
             onPressedChanged: {
-                //console.log("按下了")
+                rConnectManager.sigGetSerialPortName()
+            }
+            function onSigSetSerialPortName(serialPortNameList)
+            {
+                //console.log(rCSPVGL_PortNameComboBox.model)
+                rCSPVGL_PortNameComboBox.model = serialPortNameList
+                //console.log(rCSPVGL_PortNameComboBox.model)
+            }
+            Component.onCompleted: {
+                rConnectManager.sigSetSerialPortName.connect(onSigSetSerialPortName);
+                rConnectManager.sigGetSerialPortName()
+
+
             }
         }
     }
@@ -81,9 +109,9 @@ Rectangle {
             height: 100
             Layout.alignment:Qt.AlignRight
             //Material.background: "transparent"
-            model:["1200","2400","4800","9600","19200","38400","57600","115200","12800","230400","256000"]
+            model:["1200","2400","4800","9600","19200","38400","57600","115200","128000","230400","256000"]
             onActivated: {
-
+                         console.log(currentText)
                         }
         }
     }
@@ -119,7 +147,7 @@ Rectangle {
                         ListElement { key: "奇"; value: "3" }
                     }
             onActivated: {
-                              console.log(currentValue)
+                              //console.log(currentValue)
 
                         }
         }
@@ -229,12 +257,11 @@ Rectangle {
                         ListElement { key: "Soft"; value: "2" }
                     }
             onActivated: {
-                            //console.log(currentIndex)
+                            //console.log(currentText)
 
                         }
         }
     }
-
 
     Rectangle{
         id:rCSPV_RectangleLine2

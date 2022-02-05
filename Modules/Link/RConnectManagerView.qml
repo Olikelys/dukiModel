@@ -12,8 +12,9 @@ Rectangle {
     color: "transparent"
 
     Settings{
-        property alias rConnectManager_ConnectSwitch: rConnectManager_ConnectSwitch.checked
         property alias rConnectManager_DataSourcesComboBox: rConnectManager_DataSourcesComboBox.currentIndex
+        //property alias rConnectManager_ConnectSwitch: rConnectManager_ConnectSwitch.checked
+
     }
     RConnectManager{
         id:rConnectManager
@@ -47,6 +48,60 @@ Rectangle {
         Switch{
             id: rConnectManager_ConnectSwitch
             Layout.alignment:Qt.AlignRight
+            onCheckedChanged: {
+                if(rConnectManager.connectState)   //如果已经连接
+                {
+                    switch(rConnectManager.connectDataSources)
+                    {
+                    case 0: {
+                        rConnectManager.connectState =checked
+                        console.debug("串口关闭连接"+rConnectManager.connectState)
+                    }break;
+                    case 1: {
+                        rConnectManager.connectState =checked
+                    }break;
+                    case 2: {
+                        rConnectManager.connectState =checked
+                    }break;
+                    default:{
+                        rConnectManager.connectState =checked
+                    }break;
+                    }
+                }
+                else
+                {         //开始连接
+                    switch(rConnectManager.connectDataSources)
+                    {
+                    case 0: {
+                        rConnectManager.connectState =checked
+                        rConnectManager.Connect(rConnectSerialPortView.rCSPVGL_PortNameComboBox_currentText,
+                                                rConnectSerialPortView.rCSPVGL_BaudRateComboBox_currentText,
+                                                rConnectSerialPortView.rCSPVGL_DataBitsComboBox_currentText,
+                                                rConnectSerialPortView.rCSPVGL_ParityComboBox_currentText,
+                                                rConnectSerialPortView.rCSPVGL_StopBitsComboBox_currentText,
+                                                rConnectSerialPortView.rCSPVGL_FlowControlComboBox_currentText);
+                        //console.debug("串口启动连接"+rConnectManager.connectState)
+                    }break;
+                    case 1: {
+                        rConnectManager.connectState =checked
+                    }break;
+                    case 2: {
+                        rConnectManager.connectState =checked
+                    }break;
+                    default:{
+                        rConnectManager.connectState =checked
+                    }break;
+                    }
+
+                }
+            }
+            Component.onCompleted: {
+//                console.debug("connectState"+rConnectManager.connectState)
+//                console.debug("check"+checked)
+                rConnectManager.connectState =checked
+//                console.debug("connectState"+rConnectManager.connectState)
+//                console.debug("check"+checked)
+            }
 
         }
     }
@@ -96,11 +151,17 @@ Rectangle {
             Layout.alignment:Qt.AlignRight
             //Material.background: "transparent"
             model:["串口","UDP","本地文件"]
-
+            //currentIndex: rConnectManager.connectDataSources
             onActivated: {
-                            //console.log(currentIndex)
-
+                            rConnectManager.connectDataSources=currentIndex
+                //console.log(rConnectManager.connectDataSources)
+                //console.log(currentIndex)
                         }
+            Component.onCompleted: {
+                rConnectManager.connectDataSources = currentIndex
+               // console.log(rConnectManager.connectDataSources)
+                //console.log(currentIndex)
+            }
         }
     }
 

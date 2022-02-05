@@ -11,11 +11,16 @@ RConnectManager::RConnectManager(QObject *parent)
     Q_UNUSED(parent)
     m_rConnectSerialPort = new RConnectSerialPort( parent);
 
+    connect(this,SIGNAL(sigGetSerialPortName() ),m_rConnectSerialPort,SIGNAL(sigGetSerialPortName() ));
+    connect(m_rConnectSerialPort,SIGNAL(sigSetSerialPortName( QStringList ) ),this,SIGNAL(sigSetSerialPortName( QStringList ) )  );
+
+
+
 }
 
 RConnectManager::~RConnectManager()
 {
-
+    delete m_rConnectSerialPort;
 }
 
 
@@ -36,6 +41,7 @@ int RConnectManager::Connect(QString portName, \
                                    parity, \
                                    stopBits,\
                                    flowControl);
+    return 0 ;
 }
 int RConnectManager::DisConnect()
 {
@@ -48,4 +54,23 @@ int RConnectManager::Read()
 int RConnectManager::Write()
 {
     return 0;
+}
+
+
+
+int RConnectManager::getConnectDataSources()
+{
+    return m_connectDataSources;
+}
+void RConnectManager::setConnectDataSources(int index)
+{
+    m_connectDataSources=index;
+}
+int RConnectManager::getConnectState()
+{
+    return m_connectState;
+}
+void RConnectManager::setConnectState(int state)
+{
+    m_connectState=state;
 }
