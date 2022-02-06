@@ -12,6 +12,7 @@
 #include "Frameless/TaoFrameLessView.h"
 #include "QmlLog4/log4qml.h"
 #include "RModulesConfig.h"
+#include "Bridge.h"
 
 
 int main(int argc, char *argv[])
@@ -39,7 +40,7 @@ int main(int argc, char *argv[])
     //qDebug()<<"workpath:"<<QDir::currentPath();
    // Log4Qml log4qml("appPath");
 
-
+    Bridge bridge(&app);
     TaoFrameLessView view;
     view.setMinimumSize({ 800, 600 });
     view.resize(1440, 960);

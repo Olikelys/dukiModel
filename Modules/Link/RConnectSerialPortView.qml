@@ -111,7 +111,7 @@ Rectangle {
             //Material.background: "transparent"
             model:["1200","2400","4800","9600","19200","38400","57600","115200","128000","230400","256000"]
             onActivated: {
-                         console.log(currentText)
+                         //console.log(currentText)
                         }
         }
     }
@@ -270,6 +270,13 @@ Rectangle {
         height: 3
         color: "#DDDDDD"
         radius: 4
+    }
+
+    Button{
+        anchors.top: rCSPV_RectangleLine2.bottom
+        onClicked: {
+            rConnectManager.Read()
+        }
     }
 
 

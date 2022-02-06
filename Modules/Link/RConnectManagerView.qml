@@ -48,59 +48,38 @@ Rectangle {
         Switch{
             id: rConnectManager_ConnectSwitch
             Layout.alignment:Qt.AlignRight
+            checked: rConnectManager.connectState==1 ? true :false
             onCheckedChanged: {
                 if(rConnectManager.connectState)   //如果已经连接
                 {
-                    switch(rConnectManager.connectDataSources)
-                    {
-                    case 0: {
-                        rConnectManager.connectState =checked
-                        console.debug("串口关闭连接"+rConnectManager.connectState)
-                    }break;
-                    case 1: {
-                        rConnectManager.connectState =checked
-                    }break;
-                    case 2: {
-                        rConnectManager.connectState =checked
-                    }break;
-                    default:{
-                        rConnectManager.connectState =checked
-                    }break;
-                    }
+                    rConnectManager.DisConnect();
                 }
                 else
                 {         //开始连接
                     switch(rConnectManager.connectDataSources)
                     {
                     case 0: {
-                        rConnectManager.connectState =checked
                         rConnectManager.Connect(rConnectSerialPortView.rCSPVGL_PortNameComboBox_currentText,
                                                 rConnectSerialPortView.rCSPVGL_BaudRateComboBox_currentText,
                                                 rConnectSerialPortView.rCSPVGL_DataBitsComboBox_currentText,
                                                 rConnectSerialPortView.rCSPVGL_ParityComboBox_currentText,
                                                 rConnectSerialPortView.rCSPVGL_StopBitsComboBox_currentText,
                                                 rConnectSerialPortView.rCSPVGL_FlowControlComboBox_currentText);
-                        //console.debug("串口启动连接"+rConnectManager.connectState)
                     }break;
                     case 1: {
-                        rConnectManager.connectState =checked
+
                     }break;
                     case 2: {
-                        rConnectManager.connectState =checked
+
                     }break;
                     default:{
-                        rConnectManager.connectState =checked
                     }break;
                     }
 
                 }
             }
             Component.onCompleted: {
-//                console.debug("connectState"+rConnectManager.connectState)
-//                console.debug("check"+checked)
                 rConnectManager.connectState =checked
-//                console.debug("connectState"+rConnectManager.connectState)
-//                console.debug("check"+checked)
             }
 
         }

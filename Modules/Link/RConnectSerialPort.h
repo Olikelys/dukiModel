@@ -17,9 +17,11 @@ explicit RConnectSerialPort(QObject *parent = nullptr);
 signals:
         void sigGetSerialPortName();
         void sigSetSerialPortName(QStringList serialPortName);
+        void sigReadyRead();
 
 public slots :
             int SlotGetSerialPortName();
+            int SlotReadyRead();
 
 
 

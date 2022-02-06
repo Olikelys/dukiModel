@@ -1,6 +1,7 @@
 #include "RConnectSerialPort.h"
 #include <QtSerialPort/QSerialPort>
 #include <QDebug>
+#include <QThread>
 
 using namespace RLink ;
 
@@ -9,13 +10,18 @@ RConnectSerialPort::RConnectSerialPort(QObject *parent)
 {
     Q_UNUSED(parent)
     m_serial = new QSerialPort;
-
-
     connect(this,SIGNAL(sigGetSerialPortName()),this,SLOT(SlotGetSerialPortName()));
+    connect( m_serial,SIGNAL(readyRead() ) ,this,SIGNAL(sigReadyRead())   );
+    connect(this,SIGNAL( sigReadyRead()), this, SLOT(SlotReadyRead()));
 }
 
 RConnectSerialPort::~RConnectSerialPort()
 {
+    if(m_serial->isOpen())
+        {
+            m_serial->clear();
+            m_serial->close();
+        }
     delete m_serial;
 }
 
@@ -168,14 +174,13 @@ int RConnectSerialPort::Connect(QString portName, \
         return 60;
     }
     }
-    qDebug()<<"连接成功";
     return 0;
 }
 
 int RConnectSerialPort::DisConnect()
 {
      m_serial->close() ;
-        return 0;
+     return 0;
 
 }
 
@@ -232,7 +237,13 @@ int RConnectSerialPort::SlotGetSerialPortName()
 
 
 
-
+int RConnectSerialPort::SlotReadyRead()
+{
+    //qDebug()<<"缓冲区大小"<<m_serial->readBufferSize()<<"接受的值"<<m_serial->readAll();
+    QByteArray test = m_serial->readAll();
+    qDebug()<<test;
+    return 0;
+}
 
 
 

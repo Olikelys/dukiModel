@@ -23,7 +23,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_RLink__RConnectManager_t {
     QByteArrayData data[22];
-    char stringdata0[291];
+    char stringdata0[296];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -37,28 +37,28 @@ QT_MOC_LITERAL(1, 23, 20), // "sigGetSerialPortName"
 QT_MOC_LITERAL(2, 44, 0), // ""
 QT_MOC_LITERAL(3, 45, 20), // "sigSetSerialPortName"
 QT_MOC_LITERAL(4, 66, 18), // "serialPortNameList"
-QT_MOC_LITERAL(5, 85, 7), // "sigtest"
-QT_MOC_LITERAL(6, 93, 25), // "connectDataSourcesChanged"
-QT_MOC_LITERAL(7, 119, 20), // "m_connectDataSources"
-QT_MOC_LITERAL(8, 140, 18), // "connectStateChaged"
-QT_MOC_LITERAL(9, 159, 14), // "m_connectState"
-QT_MOC_LITERAL(10, 174, 7), // "Connect"
-QT_MOC_LITERAL(11, 182, 8), // "portName"
-QT_MOC_LITERAL(12, 191, 8), // "baudRate"
-QT_MOC_LITERAL(13, 200, 8), // "dataBits"
-QT_MOC_LITERAL(14, 209, 6), // "parity"
-QT_MOC_LITERAL(15, 216, 8), // "stopBits"
-QT_MOC_LITERAL(16, 225, 11), // "flowControl"
-QT_MOC_LITERAL(17, 237, 10), // "DisConnect"
-QT_MOC_LITERAL(18, 248, 4), // "Read"
-QT_MOC_LITERAL(19, 253, 5), // "Write"
-QT_MOC_LITERAL(20, 259, 18), // "connectDataSources"
-QT_MOC_LITERAL(21, 278, 12) // "connectState"
+QT_MOC_LITERAL(5, 85, 12), // "sigReadyRead"
+QT_MOC_LITERAL(6, 98, 25), // "connectDataSourcesChanged"
+QT_MOC_LITERAL(7, 124, 20), // "m_connectDataSources"
+QT_MOC_LITERAL(8, 145, 18), // "connectStateChaged"
+QT_MOC_LITERAL(9, 164, 14), // "m_connectState"
+QT_MOC_LITERAL(10, 179, 7), // "Connect"
+QT_MOC_LITERAL(11, 187, 8), // "portName"
+QT_MOC_LITERAL(12, 196, 8), // "baudRate"
+QT_MOC_LITERAL(13, 205, 8), // "dataBits"
+QT_MOC_LITERAL(14, 214, 6), // "parity"
+QT_MOC_LITERAL(15, 221, 8), // "stopBits"
+QT_MOC_LITERAL(16, 230, 11), // "flowControl"
+QT_MOC_LITERAL(17, 242, 10), // "DisConnect"
+QT_MOC_LITERAL(18, 253, 4), // "Read"
+QT_MOC_LITERAL(19, 258, 5), // "Write"
+QT_MOC_LITERAL(20, 264, 18), // "connectDataSources"
+QT_MOC_LITERAL(21, 283, 12) // "connectState"
 
     },
     "RLink::RConnectManager\0sigGetSerialPortName\0"
     "\0sigSetSerialPortName\0serialPortNameList\0"
-    "sigtest\0connectDataSourcesChanged\0"
+    "sigReadyRead\0connectDataSourcesChanged\0"
     "m_connectDataSources\0connectStateChaged\0"
     "m_connectState\0Connect\0portName\0"
     "baudRate\0dataBits\0parity\0stopBits\0"
@@ -127,7 +127,7 @@ void RLink::RConnectManager::qt_static_metacall(QObject *_o, QMetaObject::Call _
         switch (_id) {
         case 0: _t->sigGetSerialPortName(); break;
         case 1: _t->sigSetSerialPortName((*reinterpret_cast< QStringList(*)>(_a[1]))); break;
-        case 2: _t->sigtest(); break;
+        case 2: _t->sigReadyRead(); break;
         case 3: _t->connectDataSourcesChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 4: _t->connectStateChaged((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 5: { int _r = _t->Connect();
@@ -160,7 +160,7 @@ void RLink::RConnectManager::qt_static_metacall(QObject *_o, QMetaObject::Call _
         }
         {
             using _t = void (RConnectManager::*)();
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&RConnectManager::sigtest)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&RConnectManager::sigReadyRead)) {
                 *result = 2;
                 return;
             }
@@ -275,7 +275,7 @@ void RLink::RConnectManager::sigSetSerialPortName(QStringList _t1)
 }
 
 // SIGNAL 2
-void RLink::RConnectManager::sigtest()
+void RLink::RConnectManager::sigReadyRead()
 {
     QMetaObject::activate(this, &staticMetaObject, 2, nullptr);
 }

@@ -50,9 +50,11 @@ INSTALLS += \
 
 #头文件
 HEADERS += \
+    Bridge.h
 
 #源文件
 SOURCES += \
+        Bridge.cpp \
         main.cpp
 
 #资源文件

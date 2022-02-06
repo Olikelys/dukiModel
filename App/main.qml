@@ -3,6 +3,7 @@ import QtQuick.Window 2.15
 import TaoQuick 1.0
 import Qt.labs.settings 1.0
 import "./QML/Pane"
+import "./QML/Dialog"
 
 
 
@@ -25,15 +26,6 @@ Item {
     }
 
 
-    //中间的背景图片
-    CusImage {
-        id: bgImg
-        source: "qrc:/Images/Window/flower.jpg"
-        anchors.centerIn: parent
-        width: parent.width
-        height: parent.height
-        opacity: 0.1
-    }
     // 是最上面的框框 我吐了
     TitlePane {
         id: titlePane
@@ -127,6 +119,11 @@ Item {
         }
 
 
+    }
+
+
+    Snackbar{
+        id: snackbar
     }
 
     //按键点击的水花

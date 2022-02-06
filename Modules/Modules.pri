@@ -1,6 +1,7 @@
 
 
 include(./Link/Link.pri)
+include(./ProtocolEngine/ProtocolEngine.pri)
 
 
 INCLUDEPATH += \
