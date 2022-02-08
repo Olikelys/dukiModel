@@ -1,4 +1,6 @@
 #include "RConnectSerialPort.h"
+#include "RProEngManager.h"
+#include "RConnectManager.h"
 #include <QtSerialPort/QSerialPort>
 #include <QDebug>
 #include <QThread>
@@ -11,8 +13,8 @@ RConnectSerialPort::RConnectSerialPort(QObject *parent)
     Q_UNUSED(parent)
     m_serial = new QSerialPort;
     connect(this,SIGNAL(sigGetSerialPortName()),this,SLOT(SlotGetSerialPortName()));
-    connect( m_serial,SIGNAL(readyRead() ) ,this,SIGNAL(sigReadyRead())   );
-    connect(this,SIGNAL( sigReadyRead()), this, SLOT(SlotReadyRead()));
+    connect( m_serial,SIGNAL(readyRead() ) ,this,SIGNAL(sigReadyRead())   );  //得到数据的信号 向本级传递
+    connect(this,SIGNAL( sigReadyRead()), this, SLOT(SlotReadyRead()));       //同时接收信号
 }
 
 RConnectSerialPort::~RConnectSerialPort()
@@ -195,13 +197,15 @@ int RConnectSerialPort::Write()
 {
     return 0;
 }
-int RConnectSerialPort::Write(QByteArray byteArray)
+int RConnectSerialPort::Write(QByteArray &writebuffer)
 {
-    if(m_serial->write(byteArray))
+    qDebug() << "RConnectSerialPort in  : " << QThread::currentThreadId();
+    if(m_serial->write(writebuffer))
     {
         return 0;
     }
     else {
+        qWarning()<<"串口发送失败";
         return 1;
     }
 }
@@ -239,9 +243,8 @@ int RConnectSerialPort::SlotGetSerialPortName()
 
 int RConnectSerialPort::SlotReadyRead()
 {
-    //qDebug()<<"缓冲区大小"<<m_serial->readBufferSize()<<"接受的值"<<m_serial->readAll();
-    QByteArray test = m_serial->readAll();
-    qDebug()<<test;
+    QByteArray *newSPbuffer = new QByteArray(m_serial->readAll());
+    emit sigReadBuffer(newSPbuffer);
     return 0;
 }
 

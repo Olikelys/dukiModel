@@ -275,7 +275,8 @@ Rectangle {
     Button{
         anchors.top: rCSPV_RectangleLine2.bottom
         onClicked: {
-            rConnectManager.Read()
+            //rConnectManager.Read()
+
         }
     }
 

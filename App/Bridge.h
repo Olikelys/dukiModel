@@ -5,6 +5,9 @@
 /*
  这个类啥也不干，就连接个个模块的 信号 槽 */
 
+
+class  RProEngManager;
+
 class Bridge : public QObject
 {
     Q_OBJECT;
@@ -14,6 +17,9 @@ public:
             ~Bridge();
 
 public: int  ResetConnect();
+
+
+public: RProEngManager *rProEngManager;
 
 };
 

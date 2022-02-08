@@ -18,11 +18,12 @@ signals:
         void sigGetSerialPortName();
         void sigSetSerialPortName(QStringList serialPortName);
         void sigReadyRead();
+        void sigReadBuffer(QByteArray* newQByteArraybuffer);
 
 public slots :
             int SlotGetSerialPortName();
             int SlotReadyRead();
-
+            int Write(QByteArray &writebuffer);  //在子线程下交互依靠信号槽机制
 
 
 
@@ -35,7 +36,7 @@ public:
     virtual int DisConnect();
     virtual int Read();
     virtual int Write();
-            int Write(QByteArray byteArray);
+
 
 
 

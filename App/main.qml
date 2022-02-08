@@ -40,14 +40,14 @@ Item {
             top: titlePane.bottom
             bottom: parent.bottom
         }
-        //这个才是小花花
-        CusFPS {
-            anchors {
-                right: parent.right
-                top: parent.top
-                rightMargin: 5
-            }
-        }
+//        //这个才是小花花  这个东西太吃CPU了
+//        CusFPS {
+//            anchors {
+//                right: parent.right
+//                top: parent.top
+//                rightMargin: 5
+//            }
+//        }
         MenuPane{
             id:menuPane
             width: 40
@@ -126,16 +126,17 @@ Item {
         id: snackbar
     }
 
-    //按键点击的水花
-    ClickShow {
-        anchors.fill: parent
-        anchors.margins: 6
-    }
+// 这个玩意有点吃cpu
+//    //按键点击的水花
+//    ClickShow {
+//        anchors.fill: parent
+//        anchors.margins: 6
+//    }
 
-    Component.onCompleted:{
+//    Component.onCompleted:{
 
 
-    }
+//    }
 
 
 
