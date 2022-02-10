@@ -10,6 +10,8 @@ release/RConnectAbstract.o
 release/RConnectManager.o
 release/RConnectSerialPort.o
 release/RConnectUdp.o
+release/RDataEngAbstract.o
+release/RDataEngDefault.o
 release/RProEng.o
 release/RProEngManager.o
 release/Bridge.o
@@ -29,6 +31,8 @@ release/moc_log4qml.o
 release/moc_RConnectAbstract.o
 release/moc_RConnectManager.o
 release/moc_RConnectSerialPort.o
+release/moc_RDataEngAbstract.o
+release/moc_RDataEngDefault.o
 release/moc_RProEng.o
 release/moc_RProEngManager.o
 release/moc_Bridge.o

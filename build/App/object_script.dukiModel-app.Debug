@@ -10,6 +10,8 @@ debug/RConnectAbstract.o
 debug/RConnectManager.o
 debug/RConnectSerialPort.o
 debug/RConnectUdp.o
+debug/RDataEngAbstract.o
+debug/RDataEngDefault.o
 debug/RProEng.o
 debug/RProEngManager.o
 debug/Bridge.o
@@ -28,6 +30,8 @@ debug/moc_log4qml.o
 debug/moc_RConnectAbstract.o
 debug/moc_RConnectManager.o
 debug/moc_RConnectSerialPort.o
+debug/moc_RDataEngAbstract.o
+debug/moc_RDataEngDefault.o
 debug/moc_RProEng.o
 debug/moc_RProEngManager.o
 debug/moc_Bridge.o

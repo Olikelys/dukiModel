@@ -241,6 +241,7 @@ Makefile: ../../App/App.pro ../../../../software/QT/5.15.2/mingw81_64/mkspecs/wi
 		../../Tools/Tools.pri \
 		../../Modules/Link/Link.pri \
 		../../Modules/ProtocolEngine/ProtocolEngine.pri \
+		../../Modules/Model/Model.pri \
 		../../Modules/Modules.pri \
 		../../../../software/QT/5.15.2/mingw81_64/mkspecs/features/resolve_config.prf \
 		../../../../software/QT/5.15.2/mingw81_64/mkspecs/features/exclusive_builds_post.prf \
@@ -447,6 +448,7 @@ Makefile: ../../App/App.pro ../../../../software/QT/5.15.2/mingw81_64/mkspecs/wi
 ../../Tools/Tools.pri:
 ../../Modules/Link/Link.pri:
 ../../Modules/ProtocolEngine/ProtocolEngine.pri:
+../../Modules/Model/Model.pri:
 ../../Modules/Modules.pri:
 ../../../../software/QT/5.15.2/mingw81_64/mkspecs/features/resolve_config.prf:
 ../../../../software/QT/5.15.2/mingw81_64/mkspecs/features/exclusive_builds_post.prf:
