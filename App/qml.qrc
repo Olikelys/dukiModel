@@ -6,5 +6,6 @@
         <file>QML/Pane/SubMenuPane.qml</file>
         <file>QML/Pane/MainBobyPane.qml</file>
         <file>QML/Dialog/Snackbar.qml</file>
+        <file>QML/Pane/StatusPane.qml</file>
     </qresource>
 </RCC>

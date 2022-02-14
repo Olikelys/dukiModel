@@ -13,12 +13,14 @@
 #include "QmlLog4/log4qml.h"
 #include "RModulesConfig.h"
 #include "Bridge.h"
+#include "GlobalState.h"
 
 
 int main(int argc, char *argv[])
 {
     QElapsedTimer debugTime;
     debugTime.start();
+
 
 
 
@@ -32,22 +34,61 @@ int main(int argc, char *argv[])
     QCoreApplication::setOrganizationName("runhey");
     QCoreApplication::setOrganizationDomain("duki.cc");
     QCoreApplication::setApplicationName("dukiModel");
-    //QQuickStyle::setStyle("Material");
 
+    GlobalState globalState;
+    Bridge bridge(&app);
     //获取应用地址
     const auto appPath = QDir::cleanPath(app.applicationDirPath());
    // qDebug()<<"appPath"<<appPath;
     //qDebug()<<"workpath:"<<QDir::currentPath();
    // Log4Qml log4qml("appPath");
 
-    Bridge bridge(&app);
+
+
+    ROrigin * tset1 = new ROrigin();
+    ROrigin * tset2 = new ROrigin("int","I nodw ","value");
+    ROrigin * tset3 = new ROrigin();
+    ROrigin * tset4 = new ROrigin();
+    ROrigin * tset5 = new ROrigin();
+    ROrigin * tset6 = new ROrigin();
+    ROrigin * tset7 = new ROrigin();
+    ROrigin * tset8 = new ROrigin();
+    ROrigin * tset9 = new ROrigin();
+    ROrigin * tset10 = new ROrigin();
+    ROrigin * tset11 = new ROrigin();
+    ROrigin * tset12 = new ROrigin();
+    ROrigin * tset13 = new ROrigin();
+    ROrigin * tset14 = new ROrigin();
+    ROrigin * tset15 = new ROrigin();
+
+
+    RModelManager::Instance()->originModel->addROrigin(tset1);
+    RModelManager::Instance()->originModel->addROrigin(tset2);
+    RModelManager::Instance()->originModel->addROrigin(tset3);
+    RModelManager::Instance()->originModel->addROrigin(tset4);
+    RModelManager::Instance()->originModel->addROrigin(tset5);
+    RModelManager::Instance()->originModel->addROrigin(tset6);
+    RModelManager::Instance()->originModel->addROrigin(tset7);
+    RModelManager::Instance()->originModel->addROrigin(tset8);
+    RModelManager::Instance()->originModel->addROrigin(tset9);
+    RModelManager::Instance()->originModel->addROrigin(tset10);
+    RModelManager::Instance()->originModel->addROrigin(tset11);
+    RModelManager::Instance()->originModel->addROrigin(tset12);
+    RModelManager::Instance()->originModel->addROrigin(tset13);
+    RModelManager::Instance()->originModel->addROrigin(tset14);
+    RModelManager::Instance()->originModel->addROrigin(tset15);
+
+
     TaoFrameLessView view;
     view.setMinimumSize({ 800, 600 });
     view.resize(1440, 960);
+    //view.setColor(QColor(Qt::transparent));
     view.moveToScreenCenter();
     //上下文
+    view.rootContext()->setContextProperty("globalState",&globalState);
     view.rootContext()->setContextProperty("taoQuickImagePath", TaoQuickImagePath);
     view.rootContext()->setContextProperty("view", &view);
+    view.rootContext()->setContextProperty("rModeManager",RModelManager::Instance());
     //view.rootContext()->setContextProperty("log4Qml",&log4qml);
     //导包
     view.engine()->addImportPath(TaoQuickImportPath);

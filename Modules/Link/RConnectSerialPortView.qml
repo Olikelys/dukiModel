@@ -34,7 +34,8 @@ Rectangle {
         text: "串口参数配置"
         font.pixelSize : 20
         font.bold: true
-        Material.foreground: Material.Pink
+        //Material.foreground: Material.Pink
+        color: textcolor2
     }
     }
 
@@ -50,15 +51,17 @@ Rectangle {
             width: 80
             height: 5
             color: "transparent"
-        Label{
+        Text{
             anchors.verticalCenter: parent.verticalCenter
             text: "端口号"
+            color: textcolor
             font.bold: true
             font.pixelSize : 16
         }
         }
         ComboBox{
             id:rCSPVGL_PortNameComboBox
+            Material.background: "transparent"
             Layout.alignment:Qt.AlignRight
 //            model: ListModel{
 //                ListElement{Qstring: "COM11"}
@@ -97,9 +100,10 @@ Rectangle {
             width: 80
             height: 10
             color: "transparent"
-        Label{
+        Text{
             anchors.verticalCenter: parent.verticalCenter
             text: "波特率"
+            color: textcolor
             font.bold: true
             font.pixelSize : 16
         }
@@ -108,7 +112,7 @@ Rectangle {
             id:rCSPVGL_BaudRateComboBox
             height: 100
             Layout.alignment:Qt.AlignRight
-            //Material.background: "transparent"
+            Material.background: "transparent"
             model:["1200","2400","4800","9600","19200","38400","57600","115200","128000","230400","256000"]
             onActivated: {
                          //console.log(currentText)
@@ -127,9 +131,10 @@ Rectangle {
             width: 80
             height: 10
             color: "transparent"
-        Label{
+        Text{
             anchors.verticalCenter: parent.verticalCenter
             text: "校验位"
+            color: textcolor
             font.bold: true
             font.pixelSize : 16
         }
@@ -141,6 +146,7 @@ Rectangle {
             Layout.alignment:Qt.AlignRight
             textRole: "key"
             valueRole: "value"
+            Material.background: "transparent"
             model:ListModel {
                         ListElement { key: "None"; value: "0" }
                         ListElement { key: "偶"; value: "2" }
@@ -166,9 +172,10 @@ Rectangle {
             width: 80
             height: 10
             color: "transparent"
-        Label{
+        Text{
             anchors.verticalCenter: parent.verticalCenter
             text: "数据位"
+            color: textcolor
             font.bold: true
             font.pixelSize : 16
         }
@@ -177,7 +184,7 @@ Rectangle {
             id:rCSPVGL_DataBitsComboBox
             height: 100
             Layout.alignment:Qt.AlignRight
-            //Material.background: "transparent"
+            Material.background: "transparent"
             model:["8","7","6","5"]
             onActivated: {
                             //console.log(currentIndex)
@@ -200,9 +207,10 @@ Rectangle {
             width: 80
             height: 10
             color: "transparent"
-        Label{
+        Text{
             anchors.verticalCenter: parent.verticalCenter
             text: "停止位"
+            color: textcolor
             font.bold: true
             font.pixelSize : 16
         }
@@ -211,7 +219,7 @@ Rectangle {
             id:rCSPVGL_StopBitsComboBox
             height: 100
             Layout.alignment:Qt.AlignRight
-            //Material.background: "transparent"
+            Material.background: "transparent"
             textRole: "key"
             valueRole: "value"
             model:ListModel {
@@ -237,18 +245,19 @@ Rectangle {
             width: 80
             height: 10
             color: "transparent"
-        Label{
+        Text {
             anchors.verticalCenter: parent.verticalCenter
-            text: "数据流控"
             font.bold: true
             font.pixelSize : 16
+            color: textcolor
+            text: "数据流控"
         }
         }
         ComboBox{
             id:rCSPVGL_FlowControlComboBox
             height: 100
             Layout.alignment:Qt.AlignRight
-            //Material.background: "transparent"
+            Material.background: "transparent"
             textRole: "key"
             valueRole: "value"
             model:ListModel {
@@ -272,13 +281,7 @@ Rectangle {
         radius: 4
     }
 
-    Button{
-        anchors.top: rCSPV_RectangleLine2.bottom
-        onClicked: {
-            //rConnectManager.Read()
 
-        }
-    }
 
 
 

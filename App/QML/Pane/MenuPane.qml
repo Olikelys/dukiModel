@@ -77,7 +77,7 @@ Rectangle {
         id:menuPaneListDelegate
         Button{
             anchors.right: parent.right
-            width: rootBackground.fullscreen ? 36 : parent.width
+            width:  parent.width
             height: 50
             icon.source: ListView.isCurrentItem ? model.icon1 : model.icon2
             icon.color: "transparent"

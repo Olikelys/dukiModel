@@ -14,10 +14,15 @@ release/RDataEngAbstract.o
 release/RDataEngDefault.o
 release/RProEng.o
 release/RProEngManager.o
+release/RModelManager.o
+release/ROrigin.o
+release/ROriginModel.o
 release/Bridge.o
+release/GlobalState.o
 release/main.o
 release/qrc_TaoQuick.o
 release/qrc_Link.o
+release/qrc_View.o
 release/qrc_qml.o
 release/qrc_images.o
 release/moc_TaoFrameLessView.o
@@ -35,4 +40,8 @@ release/moc_RDataEngAbstract.o
 release/moc_RDataEngDefault.o
 release/moc_RProEng.o
 release/moc_RProEngManager.o
+release/moc_RModelManager.o
+release/moc_ROrigin.o
+release/moc_ROriginModel.o
 release/moc_Bridge.o
+release/moc_GlobalState.o

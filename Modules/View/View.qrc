@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Qml/DataShowView.qml</file>
+        <file>Qml/BobyView.qml</file>
+        <file>Qml/qmldir</file>
+    </qresource>
+</RCC>

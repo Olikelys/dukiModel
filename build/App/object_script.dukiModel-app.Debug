@@ -14,9 +14,14 @@ debug/RDataEngAbstract.o
 debug/RDataEngDefault.o
 debug/RProEng.o
 debug/RProEngManager.o
+debug/RModelManager.o
+debug/ROrigin.o
+debug/ROriginModel.o
 debug/Bridge.o
+debug/GlobalState.o
 debug/main.o
 debug/qrc_Link.o
+debug/qrc_View.o
 debug/qrc_qml.o
 debug/qrc_images.o
 debug/moc_TaoFrameLessView.o
@@ -34,4 +39,8 @@ debug/moc_RDataEngAbstract.o
 debug/moc_RDataEngDefault.o
 debug/moc_RProEng.o
 debug/moc_RProEngManager.o
+debug/moc_RModelManager.o
+debug/moc_ROrigin.o
+debug/moc_ROriginModel.o
 debug/moc_Bridge.o
+debug/moc_GlobalState.o

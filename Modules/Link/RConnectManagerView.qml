@@ -11,6 +11,8 @@ Rectangle {
     anchors.fill: parent
     color: "transparent"
 
+    property color textcolor: "#7102D5"  //0033ff
+    property color textcolor2: "#F7002C"
     Settings{
         property alias rConnectManager_DataSourcesComboBox: rConnectManager_DataSourcesComboBox.currentIndex
         //property alias rConnectManager_ConnectSwitch: rConnectManager_ConnectSwitch.checked
@@ -42,7 +44,8 @@ Rectangle {
                 text: "连接"
                 font.pixelSize : 22
                 font.bold: true
-                Material.foreground: Material.Pink
+                //Material.foreground: Material.Pink
+                color: textcolor2
             }
         }
         Switch{
@@ -121,6 +124,7 @@ Rectangle {
             Label{
                 anchors.verticalCenter: parent.verticalCenter
                 text: "数据接口"
+                font.bold: true
                 font.pixelSize : 18
             }
         }
@@ -128,7 +132,8 @@ Rectangle {
             id:rConnectManager_DataSourcesComboBox
             height: 100
             Layout.alignment:Qt.AlignRight
-            //Material.background: "transparent"
+                //"#CABDD7"
+            Material.background: "transparent"
             model:["串口","UDP","本地文件"]
             //currentIndex: rConnectManager.connectDataSources
             onActivated: {

@@ -1,0 +1,3 @@
+module View.Module
+BobyView 1.0  ./BobyView.qml
+DataShowView 1.0 ./DataShowView.qml

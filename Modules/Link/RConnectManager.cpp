@@ -1,5 +1,6 @@
 #include "RConnectManager.h"
 #include "RProEngManager.h"
+#include "GlobalState.h"
 
 using namespace RLink;
 
@@ -33,6 +34,7 @@ RConnectManager* RConnectManager::Instance()
 RConnectManager::~RConnectManager()
 {
     delete m_rConnectSerialPort;
+    m_connectThread.quit();
     m_connectThread.wait();
     m_connectThread.deleteLater();
 }
@@ -57,6 +59,7 @@ int RConnectManager::Connect(QString portName, \
                                    flowControl))
     {
         setConnectState(1);
+        GlobalState::Instace()->StartLinkTimer();
     }
     return 0 ;
 }
@@ -67,6 +70,7 @@ int RConnectManager::DisConnect()
         if( 0 == m_rConnectSerialPort->DisConnect())
         {
             setConnectState(0);
+            GlobalState::Instace()->StopLinkTimer();
         }
         else {
             qDebug()<<"无法关闭串口";

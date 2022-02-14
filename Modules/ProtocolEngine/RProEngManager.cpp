@@ -20,6 +20,7 @@ RProEngManager::RProEngManager(QObject *parent)
 RProEngManager::~RProEngManager()
 {
 qDebug()<<"析构RProEngManager";
+m_RProEngThread.quit();
 m_RProEngThread.wait();
 m_RProEngThread.deleteLater();
 delete m_RDataEngDefault;

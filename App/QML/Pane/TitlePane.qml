@@ -6,30 +6,35 @@ import TaoQuick 1.0
 
 Rectangle {
     color: "#cccccc"
-
+    //color: "#C696F2"
     //左边的 排列
-    Row {
-        anchors.left: parent.left
-        anchors.leftMargin: rootBackground.fullscreen ? 44 :6
-        height: parent.height
-        spacing: 6
+        Rectangle{
+            id: rRec
+            anchors.left: parent.left
+            width: 40
+            height: 30
+            color: "#434343"
+
+        }
         Image {
-            //visible: rootBackground.fullscreen ? false : true
-            anchors.bottom: parent.bottom
-            width: rootBackground.fullscreen ? 20 :30
-            height: rootBackground.fullscreen ? 20 :30
+            id:rIcon
+            anchors.left: rRec.right
+            anchors.leftMargin: 8
+            width: 30
+            height: 30
             source: "qrc:/Images/logo/logo-redblue-128.ico"
         }
         Text {
             id: t
             //anchors.verticalCenter: parent.verticalCenter
+            anchors.left: rIcon.right
+            anchors.leftMargin: 2
             anchors.bottom: parent.bottom
-            font.pixelSize: rootBackground.fullscreen ? 20 :26
+            font.pixelSize: 26
             font.bold: true  //加粗
             text: "dukiModel"
             color: "#000000"
         }
-    }
     //右边的
     property bool isMaxed: view.isMax
     Row {

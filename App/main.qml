@@ -2,15 +2,23 @@ import QtQuick 2.15
 import QtQuick.Window 2.15
 import TaoQuick 1.0
 import Qt.labs.settings 1.0
+import QtGraphicalEffects 1.0
 import "./QML/Pane"
 import "./QML/Dialog"
 
 
+Rectangle {
 
-Item {
+   width: 1440
+   height: 960
+   color:"transparent"
+Rectangle {
     id: rootBackground
-    width: 1440
-    height: 960
+    anchors{
+        fill:parent
+        margins: view.isMax ? 10 :0
+    }
+    //color:"red"
 
     //signal   changeScreenStatus(bool isFullScreen)
     property int      menuPaneFlag: 0   //主菜单第几个
@@ -61,6 +69,16 @@ Item {
                 left:  menuPane.right
                 right:  parent.right
             }
+            LinearGradient{
+                anchors.fill:parent
+                gradient:   Gradient {
+                    GradientStop { position: 0.1;   color: "#e9e4f0" }
+                    GradientStop { position: 0.9;   color: "#d3cce3" }
+                              }
+            start:Qt.point(0,0)
+            end:Qt.point(parent.width,parent.width)
+            }
+
         SubMenuPane{
             id:subMenuPane
             width: subMenuMainBoobyLine.x
@@ -110,12 +128,29 @@ Item {
                 }
             }
         }
+        StatusPane{
+            id:statusPane
+            height:80
+            width: parent.width-subMenuMainBoobyLine.x-subMenuMainBoobyLine.width
+            anchors{
+                //top: parent.top
+                bottom :parent.bottom
+                left: subMenuMainBoobyLine.right
+                right: parent.right
+            }
+
+        }
+
         MainBobyPane{
             id: mainBobyPane
-            height: parent.height
+            height: parent.height-statusPane.height
             width: parent.width-subMenuMainBoobyLine.x-subMenuMainBoobyLine.width
+            anchors.left: subMenuMainBoobyLine.right
             anchors.right: parent.right
         }
+
+
+
         }
 
 
@@ -144,4 +179,5 @@ Item {
 
 
 
+}
 }

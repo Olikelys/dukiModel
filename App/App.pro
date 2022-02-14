@@ -50,11 +50,13 @@ INSTALLS += \
 
 #头文件
 HEADERS += \
-    Bridge.h
+    Bridge.h \
+    GlobalState.h
 
 #源文件
 SOURCES += \
         Bridge.cpp \
+        GlobalState.cpp \
         main.cpp
 
 #资源文件

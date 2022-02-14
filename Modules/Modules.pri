@@ -3,6 +3,8 @@
 include(./Link/Link.pri)
 include(./ProtocolEngine/ProtocolEngine.pri)
 include(./Model/Model.pri)
+include(./Presenter/Presenter.pri)
+include(./View/View.pri)
 
 
 INCLUDEPATH += \

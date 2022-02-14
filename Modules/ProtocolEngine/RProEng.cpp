@@ -1,6 +1,7 @@
 #include "RProEng.h"
 #include "QDebug"
-
+#include <QTime>
+#include "GlobalState.h"
 
 RDataEngDefault * m_rDataEngDefault;
 
@@ -71,6 +72,7 @@ int RProEng::Read(QByteArray * qByteArrayBuffer)
             }break;
             }
 
+            GlobalState::Instace()->AddOnceMessage();
 
 
             //qDebug()<<"解析一帧后数据"<<m_revbuffer.toHex();

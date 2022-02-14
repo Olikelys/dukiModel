@@ -242,6 +242,8 @@ Makefile: ../../App/App.pro ../../../../software/QT/5.15.2/mingw81_64/mkspecs/wi
 		../../Modules/Link/Link.pri \
 		../../Modules/ProtocolEngine/ProtocolEngine.pri \
 		../../Modules/Model/Model.pri \
+		../../Modules/Presenter/Presenter.pri \
+		../../Modules/View/View.pri \
 		../../Modules/Modules.pri \
 		../../../../software/QT/5.15.2/mingw81_64/mkspecs/features/resolve_config.prf \
 		../../../../software/QT/5.15.2/mingw81_64/mkspecs/features/exclusive_builds_post.prf \
@@ -273,6 +275,7 @@ Makefile: ../../App/App.pro ../../../../software/QT/5.15.2/mingw81_64/mkspecs/wi
 		../../../../software/QT/5.15.2/mingw81_64/lib/qtmain.prl \
 		../../../../software/QT/5.15.2/mingw81_64/mkspecs/features/build_pass.prf \
 		../../Modules/Link/Link.qrc \
+		../../Modules/View/View.qrc \
 		../../App/qml.qrc \
 		../../App/images.qrc \
 		../../Libs/3rdparty/TaoQuick/TaoQuick/TaoQuick.qrc
@@ -449,6 +452,8 @@ Makefile: ../../App/App.pro ../../../../software/QT/5.15.2/mingw81_64/mkspecs/wi
 ../../Modules/Link/Link.pri:
 ../../Modules/ProtocolEngine/ProtocolEngine.pri:
 ../../Modules/Model/Model.pri:
+../../Modules/Presenter/Presenter.pri:
+../../Modules/View/View.pri:
 ../../Modules/Modules.pri:
 ../../../../software/QT/5.15.2/mingw81_64/mkspecs/features/resolve_config.prf:
 ../../../../software/QT/5.15.2/mingw81_64/mkspecs/features/exclusive_builds_post.prf:
@@ -480,6 +485,7 @@ Makefile: ../../App/App.pro ../../../../software/QT/5.15.2/mingw81_64/mkspecs/wi
 ../../../../software/QT/5.15.2/mingw81_64/lib/qtmain.prl:
 ../../../../software/QT/5.15.2/mingw81_64/mkspecs/features/build_pass.prf:
 ../../Modules/Link/Link.qrc:
+../../Modules/View/View.qrc:
 ../../App/qml.qrc:
 ../../App/images.qrc:
 ../../Libs/3rdparty/TaoQuick/TaoQuick/TaoQuick.qrc:
