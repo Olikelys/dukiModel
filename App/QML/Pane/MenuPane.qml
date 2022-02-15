@@ -67,6 +67,7 @@ Rectangle {
         width: parent.width
         anchors{
             fill: parent
+            topMargin: 20
         }
         model: menuPaneListModel
         delegate: menuPaneListDelegate
@@ -75,32 +76,51 @@ Rectangle {
     //委托
     Component{
         id:menuPaneListDelegate
-        Button{
-            anchors.right: parent.right
-            width:  parent.width
-            height: 50
-            icon.source: ListView.isCurrentItem ? model.icon1 : model.icon2
-            icon.color: "transparent"
-            icon.width: parent.width
-            icon.height: parent.height
-            background: Rectangle{
-                anchors.fill: parent
-                color: "transparent"
+//        Item{
+//        Rectangle{
+//            anchors.right: parent.right
+//            width:  parent.width
+//            height: 50
+//            color: ListView.isCurrentItem ? "balck" : "transparent"
+//        }
+        Item {
+
+            Rectangle{
+                anchors.top: parent.top
+                width:  menuPaneItem.width
+                height: 50
+                //color: ListView.isCurrentItem ? "#7b40f2" : "transparent"
             }
-            ToolTip{
-                visible: parent.hovered
-                delay: 800
-                text: model.text
+            Button{
+                anchors.top: parent.top
+                width:  menuPaneItem.width
+                height: 50
                 background: Rectangle{
-                    color: "#7f7f7f"
-                    radius: 3
+                    anchors.fill: parent
+                    color: ListView.isCurrentItem ? "#7b40f2" : "transparent"
+                }
+                icon.source: ListView.isCurrentItem ? model.icon1 : model.icon2
+                icon.color: "transparent"
+                icon.width: parent.width
+                icon.height: parent.height
+
+
+
+                ToolTip{
+                    visible: parent.hovered
+                    delay: 800
+                    text: model.text
+                    background: Rectangle{
+                        color: "#7f7f7f"
+                        radius: 3
+                    }
+                }
+                onClicked:{
+                    menuPaneListView.currentIndex = index
+                    rootBackground.menuPaneFlag   = index
                 }
             }
-            onClicked:{
-                menuPaneListView.currentIndex = index
-                rootBackground.menuPaneFlag   = index
-                //console.debug("clicked",rootBackground.menuPaneFlag)
-            }
+
         }
 
     }

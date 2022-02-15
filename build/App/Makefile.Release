@@ -390,22 +390,24 @@ release/qrc_images.cpp: ../../App/images.qrc \
 		../../App/Images/logo/logo-white-128.ico \
 		../../App/Images/logo/logo-redblue-128.ico \
 		../../App/Images/logo/logo-white-512.png \
-		../../App/Images/Window/window-minimize.png \
-		../../App/Images/Window/flower.jpg \
 		../../App/Images/Window/link.png \
-		../../App/Images/Window/robot\ (1).png \
 		../../App/Images/Window/help.png \
-		../../App/Images/Window/server\ (1).png \
-		../../App/Images/Window/robot.png \
+		../../App/Images/Window/flower.jpg \
 		../../App/Images/Window/link\ (1).png \
-		../../App/Images/Window/window-maximize.png \
 		../../App/Images/Window/shapes.png \
-		../../App/Images/Window/window-restore.png \
+		../../App/Images/Window/key.png \
+		../../App/Images/Window/robot\ (1).png \
 		../../App/Images/Window/setting-filling.png \
 		../../App/Images/Window/window-close.png \
-		../../App/Images/Window/key\ (1).png \
+		../../App/Images/Window/updata.png \
+		../../App/Images/Window/server\ (1).png \
+		../../App/Images/Window/robot.png \
+		../../App/Images/Window/window-maximize.png \
 		../../App/Images/Window/server.png \
-		../../App/Images/Window/key.png \
+		../../App/Images/Window/window-restore.png \
+		../../App/Images/Window/more_white.png \
+		../../App/Images/Window/window-minimize.png \
+		../../App/Images/Window/key\ (1).png \
 		../../App/Images/Window/shapes\ (1).png
 	D:\software\QT\5.15.2\mingw81_64\bin\rcc.exe -name images ..\..\App\images.qrc -o release\qrc_images.cpp
 
@@ -2139,6 +2141,8 @@ release/moc_GlobalState.cpp: ../../App/GlobalState.h \
 		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/QTimer \
 		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/qtimer.h \
 		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/qbasictimer.h \
+		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/QElapsedTimer \
+		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/qelapsedtimer.h \
 		release/moc_predefs.h \
 		../../../../software/QT/5.15.2/mingw81_64/bin/moc.exe
 	D:\software\QT\5.15.2\mingw81_64\bin\moc.exe $(DEFINES) --include D:/duki/DukiModel/build/App/release/moc_predefs.h -ID:/software/QT/5.15.2/mingw81_64/mkspecs/win32-g++ -ID:/duki/DukiModel/App -ID:/duki/DukiModel/Libs/3rdparty/TaoCommon -ID:/duki/DukiModel/Libs/RCommon/QmlSettings -ID:/duki/DukiModel/Libs/RCommon/QmlLog4 -ID:/duki/DukiModel/Libs/RCommon -ID:/duki/DukiModel/Modules/Link -ID:/duki/DukiModel/Modules/ProtocolEngine -ID:/duki/DukiModel/Modules/Model -ID:/duki/DukiModel/Modules -ID:/software/QT/5.15.2/mingw81_64/include -ID:/software/QT/5.15.2/mingw81_64/include/QtQuickControls2 -ID:/software/QT/5.15.2/mingw81_64/include/QtQuick -ID:/software/QT/5.15.2/mingw81_64/include/QtGui -ID:/software/QT/5.15.2/mingw81_64/include/QtANGLE -ID:/software/QT/5.15.2/mingw81_64/include/QtQmlModels -ID:/software/QT/5.15.2/mingw81_64/include/QtQml -ID:/software/QT/5.15.2/mingw81_64/include/QtNetwork -ID:/software/QT/5.15.2/mingw81_64/include/QtSerialPort -ID:/software/QT/5.15.2/mingw81_64/include/QtCore -I. -ID:/software/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++ -ID:/software/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32 -ID:/software/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward -ID:/software/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include -ID:/software/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed -ID:/software/QT/Tools/mingw810_64/x86_64-w64-mingw32/include ..\..\App\GlobalState.h -o release\moc_GlobalState.cpp
@@ -3357,7 +3361,11 @@ release/RConnectManager.o: ../../Modules/Link/RConnectManager.cpp ../../Modules/
 		../../Modules/ProtocolEngine/RProEng.h \
 		../../Modules/ProtocolEngine/RDataEngDefault.h \
 		../../Modules/ProtocolEngine/RDataEngAbstract.h \
-		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/QThread
+		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/QThread \
+		../../App/GlobalState.h \
+		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/QTime \
+		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/QTimer \
+		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/QElapsedTimer
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\RConnectManager.o ..\..\Modules\Link\RConnectManager.cpp
 
 release/RConnectSerialPort.o: ../../Modules/Link/RConnectSerialPort.cpp ../../Modules/Link/RConnectSerialPort.h \
@@ -4136,7 +4144,14 @@ release/RProEng.o: ../../Modules/ProtocolEngine/RProEng.cpp ../../Modules/Protoc
 		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/qthread.h \
 		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/qdeadlinetimer.h \
 		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/qelapsedtimer.h \
-		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/QDebug
+		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/QDebug \
+		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/QTime \
+		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/qdatetime.h \
+		../../App/GlobalState.h \
+		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/QTimer \
+		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/qtimer.h \
+		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/qbasictimer.h \
+		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/QElapsedTimer
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\RProEng.o ..\..\Modules\ProtocolEngine\RProEng.cpp
 
 release/RProEngManager.o: ../../Modules/ProtocolEngine/RProEngManager.cpp ../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/QDebug \
@@ -4815,7 +4830,20 @@ release/GlobalState.o: ../../App/GlobalState.cpp ../../App/GlobalState.h \
 		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/qhash.h \
 		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/QTimer \
 		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/qtimer.h \
-		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/qbasictimer.h
+		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/qbasictimer.h \
+		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/QElapsedTimer \
+		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/qelapsedtimer.h \
+		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/QDebug \
+		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/qdebug.h \
+		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/qmap.h \
+		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/qtextstream.h \
+		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/qiodevice.h \
+		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/qlocale.h \
+		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/qvariant.h \
+		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/qset.h \
+		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/qcontiguouscache.h \
+		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/qsharedpointer.h \
+		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/qsharedpointer_impl.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\GlobalState.o ..\..\App\GlobalState.cpp
 
 release/main.o: ../../App/main.cpp ../../../../../software/QT/5.15.2/mingw81_64/include/QtGui/QGuiApplication \
@@ -5202,7 +5230,9 @@ release/main.o: ../../App/main.cpp ../../../../../software/QT/5.15.2/mingw81_64/
 		../../Modules/Model/RModelManager.h \
 		../../Modules/Model/ROriginModel.h \
 		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/QAbstractListModel \
-		../../Modules/Model/ROrigin.h
+		../../Modules/Model/ROrigin.h \
+		../../App/GlobalState.h \
+		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/QTimer
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\main.o ..\..\App\main.cpp
 
 release/qrc_TaoQuick.o: release/qrc_TaoQuick.cpp 

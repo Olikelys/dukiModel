@@ -12,13 +12,16 @@ Rectangle {
    width: 1440
    height: 960
    color:"transparent"
+   radius: 10
+   clip: true
 Rectangle {
     id: rootBackground
     anchors{
         fill:parent
         margins: view.isMax ? 10 :0
     }
-    //color:"red"
+    radius: 10
+    clip: true
 
     //signal   changeScreenStatus(bool isFullScreen)
     property int      menuPaneFlag: 0   //主菜单第几个
@@ -34,27 +37,16 @@ Rectangle {
     }
 
 
-    // 是最上面的框框 我吐了
-    TitlePane {
-        id: titlePane
-        width: parent.width
-        height: 30
-    }
+
+
     //除上面的框框部分,即下面
     Item {
         id: content
-        width: parent.width
-        anchors {
-            top: titlePane.bottom
-            bottom: parent.bottom
-        }
-//        //这个才是小花花  这个东西太吃CPU了
-//        CusFPS {
-//            anchors {
-//                right: parent.right
-//                top: parent.top
-//                rightMargin: 5
-//            }
+        anchors.fill: parent
+//        width: parent.width
+//        anchors {
+//            top: parent.bottom
+//            bottom: parent.bottom
 //        }
         MenuPane{
             id:menuPane
@@ -62,94 +54,130 @@ Rectangle {
             height: parent.height
             anchors.left: parent.left
         }
-        Item{
+        Rectangle{
             id:rightPaneItem
+            color:"#eceff3"
             height: parent.height
             anchors{
                 left:  menuPane.right
                 right:  parent.right
             }
-            LinearGradient{
-                anchors.fill:parent
-                gradient:   Gradient {
-                    GradientStop { position: 0.1;   color: "#e9e4f0" }
-                    GradientStop { position: 0.9;   color: "#d3cce3" }
-                              }
-            start:Qt.point(0,0)
-            end:Qt.point(parent.width,parent.width)
-            }
 
-        SubMenuPane{
-            id:subMenuPane
-            width: subMenuMainBoobyLine.x
-            height: parent.height
-        }
-        Rectangle{
-            id:subMenuMainBoobyLine
-            x:200
-            width: 5
-            height: parent.height
-            color: "#DDDDDD"
-            MouseArea{
-                id: subMenuMouseArea
-                anchors.fill: parent
-                property int lastX: 0
-                hoverEnabled: true;
-                cursorShape: (containsMouse
-                              ?Qt.SplitHCursor
-                              :Qt.ArrowCursor);
-                //
-                onPressedChanged: {
-                    //按下鼠标记录坐标
-                    if(containsPress){
-                        lastX = mouseX
-                        //console.log("lastX="+ lastX)
+            //这个是一行移动分割线
+            Item{
+                id:subMenuMainBoobyLine
+                x:200
+                width: 10
+                height: parent.height -120
+                anchors.top: parent.top
+                //radius: 2
+                //color: "#F00097"
+                opacity: 0.1
+                MouseArea{
+                    id: subMenuMouseArea
+                    anchors.fill: parent
+                    property int lastX: 0
+                    hoverEnabled: true;
+                    cursorShape: (containsMouse
+                                  ?Qt.SplitHCursor
+                                  :Qt.ArrowCursor);
+                    //
+                    onPressedChanged: {
+                        //按下鼠标记录坐标
+                        if(containsPress){
+                            lastX = mouseX
+                            //console.log("lastX="+ lastX)
+                        }
+
                     }
+                    //
+                    onPositionChanged: {
+                        if(pressed){
+                            if( subMenuPane.width<=700 &&  parent.x>=0 ){
+                            parent.x += mouseX - lastX
+                            //console.log("width="+ rightPaneItem.width)
+                            }
+                            if(parent.x<0){
+                                parent.x=0
+                            }
+                            if(subMenuPane.width >= 700){
+                                subMenuMainBoobyLine.x = 700
+                            }
 
-                }
-                //
-                onPositionChanged: {
-                    if(pressed){
-                        if( subMenuPane.width<=700 &&  parent.x>=0 ){
-                        parent.x += mouseX - lastX
-                        //console.log("width="+ rightPaneItem.width)
+                            //console.log("width="+ rightPaneItem.width)
+
+
                         }
-                        if(parent.x<0){
-                            parent.x=0
-                        }
-                        if(subMenuPane.width >= 700){
-                            subMenuMainBoobyLine.x = 700
-                        }
-
-                        //console.log("width="+ rightPaneItem.width)
-
-
                     }
                 }
             }
-        }
-        StatusPane{
-            id:statusPane
-            height:80
-            width: parent.width-subMenuMainBoobyLine.x-subMenuMainBoobyLine.width
-            anchors{
-                //top: parent.top
-                bottom :parent.bottom
-                left: subMenuMainBoobyLine.right
-                right: parent.right
+
+            SubMenuPane{
+                id:subMenuPane
+                width: subMenuMainBoobyLine.x
+                height: parent.height
             }
 
-        }
+            //标题栏
+            TitlePane{
+                id: titlePane
+                height:50
+                anchors{
+                    top: parent.top
+                    left: subMenuMainBoobyLine.right
+                    right: parent.right
+                }
+            }
 
-        MainBobyPane{
-            id: mainBobyPane
-            height: parent.height-statusPane.height
-            width: parent.width-subMenuMainBoobyLine.x-subMenuMainBoobyLine.width
-            anchors.left: subMenuMainBoobyLine.right
-            anchors.right: parent.right
-        }
+            //状态栏
+            Rectangle{
+                id:main_Rect11
+                anchors{
+                    top: mainBobyPane.bottom
+                    topMargin: 20
+                    right: parent.right
+                }
+                radius:80
+                height: statusPane.height+radius
+                width: statusPane.width + 20
+            }
+            Rectangle{
+                id:main_Bect12
+                anchors{
+                    top: mainBobyPane.bottom
+                    topMargin: 20
+                    right: parent.right
+                    bottom: parent.bottom
+
+                }
+                width: 100
+
+            }
+            StatusPane{
+                id:statusPane
+                height:100
+                width: parent.width-subMenuMainBoobyLine.x-subMenuMainBoobyLine.width
+                anchors{
+                    bottom :parent.bottom
+                    left: subMenuMainBoobyLine.right
+                    right: parent.right
+                }
+
+            }
 
 
+            //主体
+            MainBobyPane{
+                id: mainBobyPane
+                anchors{
+                    left: subMenuMainBoobyLine.right
+                    right: parent.right
+                    top: titlePane.bottom
+                    bottom: statusPane.top
+                    margins: 10
+                    topMargin: 0
+                }
+            }
 
         }
 

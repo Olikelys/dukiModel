@@ -1,2 +1,5 @@
 module RLink.Module
-RConnectManagerView 1.0  ./RConnectManagerView.qml
+RConnectManagerView             1.0  ./RConnectManagerView.qml
+RConnectSerialPortView          1.0  ./RConnectSerialPortView.qml
+RConnectUdpView                 1.0  ./RConnectUdpView.qml
+RConnectLocalDataView           1.0  ./RConnectLocalDataView.qml

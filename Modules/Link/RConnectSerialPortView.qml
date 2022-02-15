@@ -62,6 +62,7 @@ Rectangle {
         ComboBox{
             id:rCSPVGL_PortNameComboBox
             Material.background: "transparent"
+            Material.foreground: "white"
             Layout.alignment:Qt.AlignRight
 //            model: ListModel{
 //                ListElement{Qstring: "COM11"}
@@ -113,6 +114,7 @@ Rectangle {
             height: 100
             Layout.alignment:Qt.AlignRight
             Material.background: "transparent"
+            Material.foreground: "white"
             model:["1200","2400","4800","9600","19200","38400","57600","115200","128000","230400","256000"]
             onActivated: {
                          //console.log(currentText)
@@ -147,6 +149,7 @@ Rectangle {
             textRole: "key"
             valueRole: "value"
             Material.background: "transparent"
+            Material.foreground: "white"
             model:ListModel {
                         ListElement { key: "None"; value: "0" }
                         ListElement { key: "偶"; value: "2" }
@@ -185,6 +188,7 @@ Rectangle {
             height: 100
             Layout.alignment:Qt.AlignRight
             Material.background: "transparent"
+            Material.foreground: "white"
             model:["8","7","6","5"]
             onActivated: {
                             //console.log(currentIndex)
@@ -220,6 +224,7 @@ Rectangle {
             height: 100
             Layout.alignment:Qt.AlignRight
             Material.background: "transparent"
+            Material.foreground: "white"
             textRole: "key"
             valueRole: "value"
             model:ListModel {
@@ -258,6 +263,7 @@ Rectangle {
             height: 100
             Layout.alignment:Qt.AlignRight
             Material.background: "transparent"
+            Material.foreground: "white"
             textRole: "key"
             valueRole: "value"
             model:ListModel {

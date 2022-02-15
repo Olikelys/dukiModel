@@ -4,15 +4,15 @@ import QtQuick.Controls.Material 2.12
 import Qt.labs.settings 1.0
 import QtQuick.Layouts 1.15
 import RLink 1.0
+import QtGraphicalEffects 1.15
 
-
-Rectangle {
+Item {
     id:rCManager
     anchors.fill: parent
-    color: "transparent"
+   // color: "transparent"
 
-    property color textcolor: "#7102D5"  //0033ff
-    property color textcolor2: "#F7002C"
+    property color textcolor: "white"  //0033ff
+    property color textcolor2: "white"   //"#F7002C"
     Settings{
         property alias rConnectManager_DataSourcesComboBox: rConnectManager_DataSourcesComboBox.currentIndex
         //property alias rConnectManager_ConnectSwitch: rConnectManager_ConnectSwitch.checked
@@ -22,6 +22,31 @@ Rectangle {
         id:rConnectManager
     }
 
+    DropShadow
+    {
+        anchors.fill: sMP_R
+        radius: 8.0
+        samples: 16
+        color: "#7b40f2"
+        source: sMP_R
+     }
+    Rectangle{
+        id:sMP_R
+        anchors{
+            top: parent.top
+            left: parent.left
+            right: parent.right
+            margins: 10
+            topMargin: 22
+        }
+        height: 120
+        //border.width: 2
+        //border.color: "#E53232"
+        color: "#7b40f2"//"transparent"
+        radius: 20
+    }
+    Item{
+        anchors.fill: sMP_R
 
     //连接选项
     GridLayout{
@@ -126,6 +151,7 @@ Rectangle {
                 text: "数据接口"
                 font.bold: true
                 font.pixelSize : 18
+                color: textcolor
             }
         }
         ComboBox{
@@ -134,6 +160,7 @@ Rectangle {
             Layout.alignment:Qt.AlignRight
                 //"#CABDD7"
             Material.background: "transparent"
+            Material.foreground: "white"
             model:["串口","UDP","本地文件"]
             //currentIndex: rConnectManager.connectDataSources
             onActivated: {
@@ -150,26 +177,26 @@ Rectangle {
     }
 
 
-    Rectangle{
-        id:rCMV_RectangleLine2
-        width: parent.width
-        height: 3
-        anchors{
-            left: parent.left
-            leftMargin: 10
-            right: parent.right
-            rightMargin: 10
-            top: rCMV_DataSourcesGridLayout.bottom
-        }
-        //anchors.bottom: rCMV_DataSourcesGridLayout.bottom
-        radius:3
-        color: "#DDDDDD"
+//    Rectangle{
+//        id:rCMV_RectangleLine2
+//        width: parent.width
+//        height: 3
+//        anchors{
+//            left: parent.left
+//            leftMargin: 10
+//            right: parent.right
+//            rightMargin: 10
+//            top: rCMV_DataSourcesGridLayout.bottom
+//        }
+//        //anchors.bottom: rCMV_DataSourcesGridLayout.bottom
+//        radius:3
+//        color: "#DDDDDD"
+
+//    }
+
+
 
     }
-
-
-
-
 
 
 
@@ -177,11 +204,12 @@ Rectangle {
     Item {
         id:rCMV_item3
         anchors{
-            top:rCMV_RectangleLine2.bottom
-            left: parent.left
-            leftMargin: 10
-            right: parent.right
-            rightMargin: 10
+            top:sMP_R.bottom
+            topMargin: 20
+            left: sMP_R.left
+            leftMargin: 20
+            right: sMP_R.right
+            rightMargin: 20
         }
 
         RConnectSerialPortView{

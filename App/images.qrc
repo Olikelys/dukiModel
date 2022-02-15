@@ -21,5 +21,7 @@
         <file>Images/Window/robot.png</file>
         <file>Images/Window/shapes (1).png</file>
         <file>Images/Window/shapes.png</file>
+        <file>Images/Window/more_white.png</file>
+        <file>Images/Window/updata.png</file>
     </qresource>
 </RCC>

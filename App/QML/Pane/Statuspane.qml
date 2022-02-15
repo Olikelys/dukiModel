@@ -2,19 +2,21 @@ import QtQuick 2.0
 import QtQuick.Controls 2.12
 Item {
     width: statusPane.width
-    //color: "#e9e7ef"
-    //radius:10
+    clip: true
 
 
-    Rectangle{
-        anchors{
-            top: parent.top
-            horizontalCenter: parent.horizontalCenter
-        }
-        width: parent.width -40
-        height: parent.height+20
-        radius: 20
-    }
+//    Rectangle{
+//        id:sPI_Rectangle
+//        anchors{
+//            top: parent.top
+//            //horizontalCenter: parent.horizontalCenter
+//            right: parent.right
+
+//        }
+//        width: parent.width-20
+//        height: parent.height+20
+//       // radius: 20
+//    }
 
     Row{
         anchors.centerIn: parent
