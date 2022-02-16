@@ -233,8 +233,15 @@ Item {
                         anchors.left: parent.left
                         font.pixelSize : 18
                         font.bold: true
-                        text: type
-                        color: "white"
+                        text: "·"+type
+                        color: type == "char"     ? "#33CC99"     :
+                               type == "float"    ? "#FFCC99"     :
+                               type == "hex"      ? "#FFFF00"     :
+                               type == "string"   ? "#CCFFFF"     : "white"
+
+
+
+
                     }
                 }
                 Rectangle{
@@ -247,7 +254,7 @@ Item {
                         anchors.left: parent.left
                         font.pixelSize : 18
                         font.bold: true
-                        text: "上次更新"
+                        text: date
                         color: "white"
                     }
                 }

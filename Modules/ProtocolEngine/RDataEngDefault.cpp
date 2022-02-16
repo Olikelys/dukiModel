@@ -1,5 +1,6 @@
 #include "RDataEngDefault.h"
 #include <QDebug>
+#include <QTime>
 #include "RProEng.h"
 #include <QDataStream>
 #include "RConnectManager.h"
@@ -20,6 +21,7 @@ int RDataEngDefault::UnPack(QByteArray * unPackDataBuffer)
 int RDataEngDefault::UnPack(QByteArray * unPackDataBuffer,char datatype,quint32 datalength)
 {
     quint32 unpackdatalength=0;  //这个是已近解包的数据长度
+    qDebug()<< QTime::currentTime().toString("hh:mm:ss.zzz");
     qDebug()<<"我在解包"<<unPackDataBuffer->toHex();
     switch (datatype) {
     case RHEX :{
@@ -87,7 +89,7 @@ int RDataEngDefault::UnPack(QByteArray * unPackDataBuffer,char datatype,quint32 
     case RULONG :{
 
     }break;
-    case RFLOART :{/************************************    float    ****************************************************************/
+    case RFLOAT :{/************************************    float    ****************************************************************/
         while (unpackdatalength<datalength) {
         quint32 useOnceLength=0;
         QString * p_dataname = new QString("");

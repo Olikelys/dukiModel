@@ -23,5 +23,8 @@
         <file>Images/Window/shapes.png</file>
         <file>Images/Window/more_white.png</file>
         <file>Images/Window/updata.png</file>
+        <file>Images/Window/setting.png</file>
+        <file>Images/Window/background2.png</file>
+        <file>Images/Window/background1.png</file>
     </qresource>
 </RCC>

@@ -37,6 +37,7 @@ Item {
        anchors.centerIn: parent
        onClicked: {
            snackbar.open(mainBobyPane.width)
+           //rModeManager.rOriginModel.SequentiaSearch("noType","noName")
        }
    }
 

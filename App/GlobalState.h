@@ -70,7 +70,7 @@ private:
     QTime  m_RunTime;  // 运行时间
     QTime  m_RunStartTime;  //运行开始的时间
     QTime  m_LinkTime; //连接时间
-    QElapsedTimer *m_LinkStartTime; //连接启动时间
+    QElapsedTimer *m_LinkStartTime = nullptr; //连接启动时间
     int    m_TotalMessageNumber;   //消息总数
     int    m_TotalImageNumber;   //图像总数
     float  m_MessageFps;         //消息帧   一秒钟发了多少就是多少帧
@@ -78,7 +78,7 @@ private:
     //int    m_BufferMessageNumber; // 缓存消息数
    // int    m_BufferImageFPs;      //缓存图片数 这个缓存指的是没有加进总数的数量
 
-    static GlobalState* m_this;
+    static GlobalState* m_this ;
 
 
 

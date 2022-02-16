@@ -51,6 +51,9 @@ QVariant ROriginModel::data(const QModelIndex &index, int role) const
     case ROriginRoles::TypeRole:{
         return rorigin->type();
     }break;
+    case ROriginModel::DateRole:{
+        return rorigin->date();
+    }
     case ROriginRoles::NameRole:{
         return rorigin->name();
     }break;
@@ -88,6 +91,7 @@ QHash<int,QByteArray> ROriginModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
     roles[TypeRole] = "type";
+    roles[DateRole] = "date";
     roles[NameRole] = "name";
     roles[ValRole ] = "val";
     return roles;
@@ -109,3 +113,21 @@ void ROriginModel::addROrigin( ROrigin *rorigin)
     qDebug()<<"打印数据"<<rorigin->type()<<rorigin->name()<<rorigin->val();
     endInsertRows();
 }
+
+int ROriginModel::SequentiaSearch(QString & type ,QString & name){
+
+
+    for(int index =0; index < m_ROrigins.count();index++)
+    {
+        if(m_ROrigins[index]->name()  == name )
+        {
+            if(m_ROrigins[index]->type() == type)
+            {
+                return index;
+                qDebug()<<index;
+            }
+        }
+    }
+    return -1;
+}
+

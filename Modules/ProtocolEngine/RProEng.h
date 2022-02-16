@@ -73,7 +73,7 @@ char       messagetype;
 #define RUINT     0X08
 #define RLONG     0X09
 #define RULONG    0X0A
-#define RFLOART   0X0B
+#define RFLOAT   0X0B
 #define RDOUBLE   0X0C
 #define RINT8     0X10
 #define RINT16    0X11

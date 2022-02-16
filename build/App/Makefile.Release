@@ -393,6 +393,7 @@ release/qrc_images.cpp: ../../App/images.qrc \
 		../../App/Images/Window/link.png \
 		../../App/Images/Window/help.png \
 		../../App/Images/Window/flower.jpg \
+		../../App/Images/Window/setting.png \
 		../../App/Images/Window/link\ (1).png \
 		../../App/Images/Window/shapes.png \
 		../../App/Images/Window/key.png \
@@ -404,7 +405,9 @@ release/qrc_images.cpp: ../../App/images.qrc \
 		../../App/Images/Window/robot.png \
 		../../App/Images/Window/window-maximize.png \
 		../../App/Images/Window/server.png \
+		../../App/Images/Window/background1.png \
 		../../App/Images/Window/window-restore.png \
+		../../App/Images/Window/background2.png \
 		../../App/Images/Window/more_white.png \
 		../../App/Images/Window/window-minimize.png \
 		../../App/Images/Window/key\ (1).png \
@@ -3813,6 +3816,8 @@ release/RDataEngDefault.o: ../../Modules/ProtocolEngine/RDataEngDefault.cpp ../.
 		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/qcontiguouscache.h \
 		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/qsharedpointer.h \
 		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/qsharedpointer_impl.h \
+		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/QTime \
+		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/qdatetime.h \
 		../../Modules/ProtocolEngine/RProEng.h \
 		../../Modules/ProtocolEngine/RProEngManager.h \
 		../../App/Bridge.h \
@@ -3858,7 +3863,6 @@ release/RDataEngDefault.o: ../../Modules/ProtocolEngine/RDataEngDefault.cpp ../.
 		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/qcalendar.h \
 		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/qcborarray.h \
 		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/qcborvalue.h \
-		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/qdatetime.h \
 		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/qcborcommon.h \
 		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/qregularexpression.h \
 		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/qurl.h \
@@ -4611,7 +4615,21 @@ release/ROrigin.o: ../../Modules/Model/ROrigin.cpp ../../Modules/Model/ROrigin.h
 		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/qset.h \
 		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/qcontiguouscache.h \
 		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/qsharedpointer.h \
-		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/qsharedpointer_impl.h
+		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/qsharedpointer_impl.h \
+		../../Modules/ProtocolEngine/RProEng.h \
+		../../Modules/ProtocolEngine/RProEngManager.h \
+		../../App/Bridge.h \
+		../../Modules/Model/RModelManager.h \
+		../../Modules/Model/ROriginModel.h \
+		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/QAbstractListModel \
+		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/qabstractitemmodel.h \
+		../../Modules/ProtocolEngine/RDataEngDefault.h \
+		../../Modules/ProtocolEngine/RDataEngAbstract.h \
+		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/QThread \
+		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/qthread.h \
+		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/qdeadlinetimer.h \
+		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/qelapsedtimer.h \
+		../../../../../software/QT/5.15.2/mingw81_64/include/QtCore/QDebug
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\ROrigin.o ..\..\Modules\Model\ROrigin.cpp
 
 release/ROriginModel.o: ../../Modules/Model/ROriginModel.cpp ../../Modules/Model/ROriginModel.h \

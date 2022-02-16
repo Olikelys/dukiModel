@@ -137,6 +137,7 @@ Rectangle {
                     topMargin: 20
                     right: parent.right
                 }
+                color: "#e9f1f6"
                 radius:80
                 height: statusPane.height+radius
                 width: statusPane.width + 20
@@ -151,6 +152,7 @@ Rectangle {
 
                 }
                 width: 100
+                color: "#e9f1f6"
 
             }
             StatusPane{

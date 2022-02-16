@@ -64,10 +64,6 @@ Rectangle {
             Material.background: "transparent"
             Material.foreground: "white"
             Layout.alignment:Qt.AlignRight
-//            model: ListModel{
-//                ListElement{Qstring: "COM11"}
-//                ListElement{Qstring: "COM22"}
-//            }
             onActivated: {
                             //console.log(currentIndex)
 

@@ -20,8 +20,17 @@ Item{
         width: parent.width+radius
         height: parent.height+radius// -45
         color: "#7b40f2"
-
-
+    }
+    Image {
+        anchors{
+            left: parent.left
+            leftMargin: 200
+            bottom: parent.bottom
+        }
+        height: 500
+        width: 500
+        opacity: 0.1
+        source: "qrc:/Images/Window/background1.png"
     }
 
     DropShadow

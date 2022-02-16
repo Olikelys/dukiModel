@@ -76,23 +76,10 @@ Rectangle {
     //委托
     Component{
         id:menuPaneListDelegate
-//        Item{
-//        Rectangle{
-//            anchors.right: parent.right
-//            width:  parent.width
-//            height: 50
-//            color: ListView.isCurrentItem ? "balck" : "transparent"
-//        }
-        Item {
 
-            Rectangle{
-                anchors.top: parent.top
-                width:  menuPaneItem.width
-                height: 50
-                //color: ListView.isCurrentItem ? "#7b40f2" : "transparent"
-            }
+
             Button{
-                anchors.top: parent.top
+                //anchors.top: parent.top
                 width:  menuPaneItem.width
                 height: 50
                 background: Rectangle{
@@ -120,11 +107,43 @@ Rectangle {
                     rootBackground.menuPaneFlag   = index
                 }
             }
-
         }
 
-    }
+
     }
 
+
+
+    Button{
+        anchors{
+            right: parent.right
+            left: parent.left
+            bottom: parent.bottom
+            bottomMargin: 20
+        }
+        background: Rectangle{
+            anchors.fill: parent
+            color: "transparent"
+        }
+        icon.source: "qrc:/Images/Window/setting.png"
+        icon.color:"transparent"
+        icon.width: parent.width
+        icon.height: parent.height
+        ToolTip{
+            visible: parent.hovered
+            delay: 800
+            text: "设置"
+            background: Rectangle{
+                color: "#7f7f7f"
+                radius: 3
+            }
+        }
+        onClicked:{
+            snackbar.open("还没有东西可以放在设置里面")
+        }
+
+
+
+    }
 
 }

@@ -22,8 +22,8 @@ public:
 public: int  ResetConnect();
 
 
-public: RProEngManager *rProEngManager;
-public: RModelManager  *rModelManager;
+public: RProEngManager *rProEngManager = nullptr;
+public: RModelManager  *rModelManager  = nullptr;
 
 };
 

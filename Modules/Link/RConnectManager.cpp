@@ -69,7 +69,7 @@ int RConnectManager::DisConnect()
     case 0 :{//串口的关闭
         if( 0 == m_rConnectSerialPort->DisConnect())
         {
-            setConnectState(0);
+            setConnectState(0);    
             GlobalState::Instace()->StopLinkTimer();
         }
         else {

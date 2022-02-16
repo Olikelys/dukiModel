@@ -9,6 +9,7 @@ class ROriginModel : public QAbstractListModel
     Q_OBJECT
     enum ROriginRoles {
         TypeRole = Qt::UserRole + 1,
+        DateRole,
         NameRole,
         ValRole
     };
@@ -28,7 +29,8 @@ public:
     QHash<int,QByteArray> roleNames() const override;
 
     //......
-    void addROrigin( ROrigin *rorigin);
+    void addROrigin( ROrigin *rorigin);       //添加一条数据
+    Q_INVOKABLE int SequentiaSearch(QString & type ,QString & name);   //顺序查找一条数据
 
 
 private:
