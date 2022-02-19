@@ -1,0 +1,3 @@
+module RControls
+ResizableRectangle            1.0  ./library/ResizableRectangle.qml
+RWavyProgress                 1.0  ./RWavyProgress/RWavyProgress.qml

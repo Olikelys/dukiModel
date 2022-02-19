@@ -4,6 +4,9 @@ import TaoQuick 1.0
 import QtQuick.Shapes 1.15
 import QtGraphicalEffects 1.15
 import "qrc:/Qml"
+import "qrc:/Controls"
+
+
 
 Item {
     id:mainBobyPane
@@ -12,7 +15,6 @@ Item {
         anchors.fill: parent
         radius: 20
     }
-
     DropShadow
     {
         anchors.fill: mBPI_Rectangel
@@ -29,17 +31,33 @@ Item {
         height: width
         opacity: 0.08
     }
+    //拖拽区域
+    DropArea{
+        anchors.fill: parent
+        //进入
+        onEntered: {
+        }
+        onDropped: {
+            //拷贝
+            if(drop.proposedAction == Qt.CopyAction){
+                drop.acceptProposedAction()
+                snackbar.open(drop.getDataAsString("DragDoneShow"))
+                //snackbar.open("拖拽完成"+drop.x+drop.y+drop.getDataAsString("DragDoneShow")+drop.getDataAsString("type"))
+                //new 一个新的对象
+                //var obj =Qt.createComponent(contentsPath+drop.getDataAsString("ual")).createObject(platformBobyItem,{"x":drop.x,"y":drop.y});
+            }
+
+        }
+    }
 
 
+    ResizableRectangle{
 
+    }
+    RWavyProgress{
 
-   Button{
-       anchors.centerIn: parent
-       onClicked: {
-           snackbar.open(mainBobyPane.width)
-           //rModeManager.rOriginModel.SequentiaSearch("noType","noName")
-       }
-   }
+    }
+
 
 
 }

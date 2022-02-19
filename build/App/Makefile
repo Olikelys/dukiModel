@@ -238,6 +238,7 @@ Makefile: ../../App/App.pro ../../../../software/QT/5.15.2/mingw81_64/mkspecs/wi
 		../../Libs/RCommon/RCommon.pri \
 		../../Libs/Libs.pri \
 		../../Plugins/Plugins.pri \
+		../../Tools/ByteToVariant/ByteToVariant.pri \
 		../../Tools/Tools.pri \
 		../../Modules/Link/Link.pri \
 		../../Modules/ProtocolEngine/ProtocolEngine.pri \
@@ -274,6 +275,7 @@ Makefile: ../../App/App.pro ../../../../software/QT/5.15.2/mingw81_64/mkspecs/wi
 		../../../../software/QT/5.15.2/mingw81_64/lib/Qt5Core.prl \
 		../../../../software/QT/5.15.2/mingw81_64/lib/qtmain.prl \
 		../../../../software/QT/5.15.2/mingw81_64/mkspecs/features/build_pass.prf \
+		../../Plugins/Controls/Controls.qrc \
 		../../Modules/Link/Link.qrc \
 		../../Modules/View/View.qrc \
 		../../App/qml.qrc \
@@ -448,6 +450,7 @@ Makefile: ../../App/App.pro ../../../../software/QT/5.15.2/mingw81_64/mkspecs/wi
 ../../Libs/RCommon/RCommon.pri:
 ../../Libs/Libs.pri:
 ../../Plugins/Plugins.pri:
+../../Tools/ByteToVariant/ByteToVariant.pri:
 ../../Tools/Tools.pri:
 ../../Modules/Link/Link.pri:
 ../../Modules/ProtocolEngine/ProtocolEngine.pri:
@@ -484,6 +487,7 @@ Makefile: ../../App/App.pro ../../../../software/QT/5.15.2/mingw81_64/mkspecs/wi
 ../../../../software/QT/5.15.2/mingw81_64/lib/Qt5Core.prl:
 ../../../../software/QT/5.15.2/mingw81_64/lib/qtmain.prl:
 ../../../../software/QT/5.15.2/mingw81_64/mkspecs/features/build_pass.prf:
+../../Plugins/Controls/Controls.qrc:
 ../../Modules/Link/Link.qrc:
 ../../Modules/View/View.qrc:
 ../../App/qml.qrc:

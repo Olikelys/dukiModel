@@ -1,6 +1,6 @@
 TEMPLATE = subdirs
 
-INCLUDEPATH += \
+INCLUDEPATH += $$PWD
 
 
 

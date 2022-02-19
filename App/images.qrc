@@ -26,5 +26,13 @@
         <file>Images/Window/setting.png</file>
         <file>Images/Window/background2.png</file>
         <file>Images/Window/background1.png</file>
+        <file>Images/Control/btu.png</file>
+        <file>Images/Control/gauge.png</file>
+        <file>Images/Control/graph.png</file>
+        <file>Images/Control/image.png</file>
+        <file>Images/Control/light.png</file>
+        <file>Images/Control/slider.png</file>
+        <file>Images/Control/switch.png</file>
+        <file>Images/Control/waterprogress.png</file>
     </qresource>
 </RCC>

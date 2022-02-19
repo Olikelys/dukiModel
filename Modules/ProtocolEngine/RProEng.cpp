@@ -26,7 +26,7 @@ int RProEng::Read(QByteArray * qByteArrayBuffer)
 
 
     if(qByteArrayBuffer->size() <= 0)
-    {return 10; qWarning()<<"没有数据";} //没有数据
+    { qWarning()<<"没有数据";return 10;} //没有数据
 
     /*--------------------------------------数据流切分--------------------------------------------*/
     m_revbuffer.append(qByteArrayBuffer->data(),qByteArrayBuffer->size());//扔到内部的数据流上

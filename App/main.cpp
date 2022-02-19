@@ -88,8 +88,8 @@ int main(int argc, char *argv[])
     RModelManager::Instance()->originModel->addROrigin(test37);
     RModelManager::Instance()->originModel->addROrigin(test38);
 
-    QString itype = "long";QString iname = "long";
-    qDebug()<<RModelManager::Instance()->originModel->SequentiaSearch( itype ,iname);
+    QString itype = "long";QString iname = "long"; quint8 eee = 0x09;
+    qDebug()<<RModelManager::Instance()->originModel->SequentiaSearch( eee ,iname);
 
 
     TaoFrameLessView view;
@@ -104,7 +104,11 @@ int main(int argc, char *argv[])
     //view.rootContext()->setContextProperty("log4Qml",&log4qml);
     //导包
     view.engine()->addImportPath(TaoQuickImportPath);
-    view.engine()->addImportPath("qrc:/Link/");
+    //view.engine()->addImportPath("qrc:/RControls");   //妈的这个项目的  qml模块系统整我恶心了 槽
+    //view.engine()->addImportPath("qrc:/Link/");
+//    for(QString path : view.engine()->importPathList())
+//        qDebug() << path;
+
     //改存储的地方
     view.engine()->setOfflineStoragePath(appPath);
 

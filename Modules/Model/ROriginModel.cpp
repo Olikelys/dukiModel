@@ -1,5 +1,6 @@
 #include "ROriginModel.h"
 #include <QDebug>
+#include "RModelManager.h"
 ROriginModel::ROriginModel(QObject *parent)
     : QAbstractListModel(parent)
 {
@@ -110,13 +111,11 @@ void ROriginModel::addROrigin( ROrigin *rorigin)
 {
     beginInsertRows(QModelIndex(), rowCount(), rowCount());
     m_ROrigins << rorigin;
-    qDebug()<<"打印数据"<<rorigin->type()<<rorigin->name()<<rorigin->val();
     endInsertRows();
 }
 
-int ROriginModel::SequentiaSearch(QString & type ,QString & name){
-
-
+int ROriginModel::SequentiaSearch( const QString & type ,const QString & name)const
+{
     for(int index =0; index < m_ROrigins.count();index++)
     {
         if(m_ROrigins[index]->name()  == name )
@@ -130,4 +129,57 @@ int ROriginModel::SequentiaSearch(QString & type ,QString & name){
     }
     return -1;
 }
+int ROriginModel::SequentiaSearch(const quint8 & type ,const QString & name)const
+{
+    for(int index =0; index < m_ROrigins.count();index++)
+    {
+        if(m_ROrigins[index]->htype()  == type )
+        {
+            if(m_ROrigins[index]->name() == name)
+            {
+                return index;
+                qDebug()<<index;
+            }
+        }
+    }
+    return -1;
+}
 
+
+int ROriginModel::UpDateVal(const int index , const QString time ,const QVariant  val)
+{
+    m_ROrigins[index]->setDate(time);
+    m_ROrigins[index]->setVal(val);
+    return 0;
+}
+int ROriginModel::UpDateVal(const int index , const QString time , QByteArray * val)
+{
+    m_ROrigins[index]->setDate(time);
+   // m_ROrigins[index]->setVal(val);
+    Q_UNUSED(val)
+    return 0;
+}
+
+
+
+
+
+
+/**********************************************************************/
+int ROriginModel::ROriginModel_unPackROrigin(ROrigin *tempOrigin)
+{
+    int tempindex =  SequentiaSearch(tempOrigin->htype(),tempOrigin->name());
+   // qDebug()<<"到rOriginModel了"<<tempindex<<tempOrigin->htype()<<tempOrigin->date()<<tempOrigin->name()<<tempOrigin->val();
+    if(tempindex == -1)
+    {
+        addROrigin(tempOrigin);
+    }
+    else
+    {
+       beginResetModel();
+       UpDateVal(tempindex,tempOrigin->date(),tempOrigin->val() );
+       endResetModel();
+       delete  tempOrigin;
+    }
+    return 0;
+}

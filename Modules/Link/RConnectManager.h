@@ -14,7 +14,7 @@
  *
  *
  *            发送数据流程:
- *            这个简单了，直接单例化然后调用RLink::RConnectManager::Instance->Write(QByteArray&)，这个函数发送一个信号告诉具体的工作类来发送
+ *            这个简单了，直接单例化然后调用RLink::RConnectManager::Instance->sigWrite(QByteArray&)，这个函数发送一个信号告诉具体的工作类来发送
  * */
 
 

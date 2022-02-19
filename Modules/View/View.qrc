@@ -3,5 +3,7 @@
         <file>Qml/DataShowView.qml</file>
         <file>Qml/BobyView.qml</file>
         <file>Qml/qmldir</file>
+        <file>Qml/Controls.qml</file>
+        <file>Qml/ControlManager.qml</file>
     </qresource>
 </RCC>

@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/Controls">
+        <file>library/ResizableRectangle.qml</file>
+        <file>qmldir</file>
+        <file>library/ResizeBorder.qml</file>
+        <file>library/DragItem.qml</file>
+        <file>library/Image/rotate.png</file>
+        <file>RWavyProgress/RWavyProgress.qml</file>
+    </qresource>
+    <qresource prefix="/"/>
+</RCC>

@@ -25,10 +25,11 @@ public:
     explicit ROrigin(QObject *parent);
              ROrigin(const QString type,const QString name,const QString val);  //这个和上一个构造函数是老的不能用了
              ROrigin(const quint8 type,const QString date,const QString name,const QVariant val);
-            // ROrigin(const quint8 type,const QString date,const QString name,const QVariant &val);//事实证明指针太危险了还是引用吧
+             ROrigin(const quint8 type,const QString date,const QString name,const QByteArray *val);//事实证明指针太危险了还是引用吧
     ~ROrigin();
 
 
+    quint8  htype() const;
     QString type() const;
     QString date() const;
     QString name() const;
@@ -36,7 +37,8 @@ public:
     void setType(const QString &type);
     void setDate(const QString &date);
     void setName(const QString &name);
-    void setVal(const QString &val);
+    void setVal(const QString &val);   //这个单单设置 m_val 本质上没有更新mval;
+    void setVal(const QVariant val );   //
 signals:
     void typeChanged();
     void dateChanged();
@@ -44,10 +46,10 @@ signals:
     void valChanged();
 
 private:
-    QString m_type;
+    QString m_type;                //这里 type 可以整成键值对的那种
     QString m_date;
     QString m_name;
-    QString m_val;
+    QString m_val;                 // val 也是
 
     quint8 mtype;
     QVariant mval;

@@ -37,6 +37,7 @@ signals:
     void sigRead(QByteArray * qByteArrayBuffer);
 
 
+
 public:
     RProEng *m_RProEng = nullptr;
     RDataEngDefault *m_RDataEngDefault = nullptr;

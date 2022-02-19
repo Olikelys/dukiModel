@@ -28,9 +28,17 @@ public:
     bool removeRows(int row, int count, const QModelIndex &parent = QModelIndex()) override;
     QHash<int,QByteArray> roleNames() const override;
 
+
+public slots :
+    int ROriginModel_unPackROrigin(ROrigin *tempOrigin);
+
+
     //......
     void addROrigin( ROrigin *rorigin);       //添加一条数据
-    Q_INVOKABLE int SequentiaSearch(QString & type ,QString & name);   //顺序查找一条数据
+    Q_INVOKABLE int SequentiaSearch(const QString & type ,const QString & name)const;   //顺序查找一条数据
+    Q_INVOKABLE int SequentiaSearch(const quint8 & type ,const QString & name)const;
+    Q_INVOKABLE int UpDateVal(const int index , const QString time ,const QVariant  val);
+    Q_INVOKABLE int UpDateVal(const int index , const QString time , QByteArray * val);
 
 
 private:

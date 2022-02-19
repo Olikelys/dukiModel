@@ -6,6 +6,7 @@ debug/ThreadPool.o
 debug/Trans.o
 debug/TaoFrameLessView_win.o
 debug/log4qml.o
+debug/ByteToVariant.o
 debug/RConnectAbstract.o
 debug/RConnectManager.o
 debug/RConnectSerialPort.o
@@ -20,6 +21,7 @@ debug/ROriginModel.o
 debug/Bridge.o
 debug/GlobalState.o
 debug/main.o
+debug/qrc_Controls.o
 debug/qrc_Link.o
 debug/qrc_View.o
 debug/qrc_qml.o
