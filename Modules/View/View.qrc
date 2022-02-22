@@ -1,5 +1,5 @@
 <RCC>
-    <qresource prefix="/">
+    <qresource prefix="/Qml">
         <file>Qml/DataShowView.qml</file>
         <file>Qml/BobyView.qml</file>
         <file>Qml/qmldir</file>

@@ -18,6 +18,7 @@ release/RProEngManager.o
 release/RModelManager.o
 release/ROrigin.o
 release/ROriginModel.o
+release/RViewManager.o
 release/Bridge.o
 release/GlobalState.o
 release/main.o
@@ -45,5 +46,6 @@ release/moc_RProEngManager.o
 release/moc_RModelManager.o
 release/moc_ROrigin.o
 release/moc_ROriginModel.o
+release/moc_RViewManager.o
 release/moc_Bridge.o
 release/moc_GlobalState.o

@@ -7,41 +7,90 @@ Rectangle {
     color: "transparent"
     smooth: true
     antialiasing: true
-    //rotation: 87
 
+
+
+    property string path: ""
+    property string controlType: ""
+    property string name: "右键双击打开菜单"
+    property bool borderVisble: true               //边框是否可见
+    property bool nameVisble: true
+    x :100
+    y :100
     width:   250
     height:  250
-    property bool resizeBorderVisible : true       //边框是否可见
-    property color resizeBordercolor: "red"        //边框颜色
-
+    rotation: 0
 
     signal clicked(real x, real y)
     signal rightDoubleClicked(real x, real y)
     signal leftDoubleClicked(real x, real y)
 
-   ResizeBorder{
+    //内部属性
+    property color resizeBordercolor: "red"        //边框颜色
+    property bool isMenu: false
+    /****************         基类 拥有的上下文
+    controlType:控件类型
+    name:
+    x:
+    y:
+    width:
+    height:
+    rotation:  旋转角度
+    borderVisble:  边框是否可见
+    nameVisble: 名字是否可见
+
+
+
+*****************************************************************************************************************/
+    //这个有颜色的框
+    Rectangle {
+        border.color: resizeBordercolor
+        border.width: 2
+        radius: resizeBorder.borderMargin
+        anchors.fill: resizeBorder
+        anchors.margins: resizeBorder.borderMargin + 2
+        color: "transparent"
+        visible: borderVisble || isMenu
+    }
+    //鼠标移动区域
+    MouseArea {
+        id: dragItem
+        anchors.fill: resizeBorder
+        anchors.margins: resizeBorder.borderMargin * 2
+        cursorShape: isMenu ? Qt.SizeAllCursor :Qt.ArrowCursor
+        acceptedButtons: Qt.LeftButton | Qt.RightButton
+        drag.target:   isMenu ? root: null
+        drag.minimumX:0
+        drag.maximumX:mainBobyPane.width-root.width
+        drag.minimumY: 0
+        drag.maximumY:mainBobyPane.height-root.height
+        onClicked: {
+            root.clicked(x, y)
+        }
+        onDoubleClicked: {
+            if( mouse.button == Qt.RightButton)
+            {
+                root.rightDoubleClicked(x, y)
+            }
+            else{
+                root.leftDoubleClicked(x, y)
+            }
+
+        }
+
+   }
+    //可以 调大小的框
+    ResizeBorder{
+       id: resizeBorder
        width: parent.width + borderMargin * 2
        height: parent.height + borderMargin * 2
        anchors.centerIn: parent
-       visible: resizeBorderVisible
+       visible: isMenu
 
 
-       readonly property int borderMargin: 10 //边框大小
+       readonly property int borderMargin: 6 //边框大小
        property var controller: parent
 
-
-
-
-
-       //这个有颜色的框
-       Rectangle {
-           border.color: resizeBordercolor
-           border.width: 2
-           radius: parent.borderMargin
-           anchors.fill: parent
-           anchors.margins: parent.borderMargin + 2
-           color: "transparent"
-       }
        //这个是旋转的
        Rectangle {
            color: "red"
@@ -88,37 +137,54 @@ Rectangle {
                    }
                }
            }
+           ToolTip {
+               id: toolTip
+               x: rotateArea.mouseX + 30
+               y: rotateArea.mouseY
+               visible: rotateArea.pressed
+               text: parseInt(resizeBorder.controller.rotation) + "°"
+               background: Rectangle{
+                   color: "#7f7f7f"
+                   radius: 3
+               }
+           }
        }
 
-       //鼠标移动区域
-       MouseArea {
-           id: dragItem
-           anchors.fill: parent
-           anchors.margins: parent.borderMargin * 2
-           cursorShape: Qt.SizeAllCursor
-            acceptedButtons: Qt.LeftButton | Qt.RightButton
-           drag.target: root
-           drag.minimumX:0
-           drag.maximumX:mainBobyPane.width-root.width
-           drag.minimumY: 0
-           drag.maximumY:mainBobyPane.height-root.height
-           onClicked: {
-               root.clicked(x, y)
-           }
-           onDoubleClicked: {
-               if( mouse.button == Qt.RightButton)
-               {
-                   //console.debug("右键双击")
-                   root.rightDoubleClicked(x, y)
-               }
-               else{
-                   root.leftDoubleClicked(x, y)
-               }
 
-           }
-
-      }
 
    }
+
+    function getBasic_ctx()
+    {
+        var ctx = {
+            "path" : path,
+            "controlType":controlType,
+            "name":name,
+            "borderVisble":borderVisble,
+            "nameVisble":nameVisble,
+            "x":x,
+            "y":y,
+            "width":width,
+            "height":height,
+            "rotation":rotation
+
+        }
+        return ctx
+    }
+
+    function setBasic_ctx(ctx)
+    {
+        path = ctx.path
+        controlType = ctx.controlType
+        name = ctx.name
+        borderVisble = ctx.borderVisble
+        nameVisble = ctx.nameVisble
+        x = ctx.x
+        y = ctx.y
+        width = ctx.width
+        height = ctx.height
+        rotation = ctx.rotation
+    }
+
 
 }

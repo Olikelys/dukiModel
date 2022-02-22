@@ -139,7 +139,8 @@ Rectangle {
             }
         }
         onClicked:{
-            snackbar.open("还没有东西可以放在设置里面")
+            sysDialog.open()
+            snackbar.open("系统设置比较简陋")
         }
 
 

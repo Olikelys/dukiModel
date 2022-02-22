@@ -7,5 +7,6 @@
         <file>QML/Pane/MainBobyPane.qml</file>
         <file>QML/Dialog/Snackbar.qml</file>
         <file>QML/Pane/StatusPane.qml</file>
+        <file>QML/Dialog/SysDialog.qml</file>
     </qresource>
 </RCC>

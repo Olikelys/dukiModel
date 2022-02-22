@@ -18,6 +18,7 @@ debug/RProEngManager.o
 debug/RModelManager.o
 debug/ROrigin.o
 debug/ROriginModel.o
+debug/RViewManager.o
 debug/Bridge.o
 debug/GlobalState.o
 debug/main.o
@@ -44,5 +45,6 @@ debug/moc_RProEngManager.o
 debug/moc_RModelManager.o
 debug/moc_ROrigin.o
 debug/moc_ROriginModel.o
+debug/moc_RViewManager.o
 debug/moc_Bridge.o
 debug/moc_GlobalState.o

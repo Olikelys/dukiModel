@@ -72,7 +72,6 @@ Log4Qml::Log4Qml(QString log4path)
 
     //qDebug()<<"path:"<<Log4Qml::Log4QmlPath<<"name :"<<Log4Qml::Log4QmlName<<
     //回调函数注册到QT中   是重定向
-
     qInstallMessageHandler(outputMessage);
 
 }

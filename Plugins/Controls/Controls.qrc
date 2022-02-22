@@ -6,6 +6,18 @@
         <file>library/DragItem.qml</file>
         <file>library/Image/rotate.png</file>
         <file>RWavyProgress/RWavyProgress.qml</file>
+        <file>library/BasicMenu.qml</file>
+        <file>library/Image/close.png</file>
+        <file>library/Image/delete.png</file>
+        <file>library/Image/downopen.png</file>
+        <file>library/Image/leftclose.png</file>
+        <file>RWavyProgress/RWavyProgressMenu.qml</file>
+        <file>RWavyProgress/WavyProgress.qml</file>
+        <file>RWavyProgress/style.js</file>
+        <file>library/OriginMenu.qml</file>
+        <file>library/ArgumentMenu.qml</file>
+        <file>library/CmdMenu.qml</file>
+        <file>library/qmldir</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>

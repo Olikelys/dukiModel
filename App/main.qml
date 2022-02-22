@@ -1,8 +1,11 @@
 import QtQuick 2.15
 import QtQuick.Window 2.15
+import QtQuick.Controls 2.12
 import TaoQuick 1.0
 import Qt.labs.settings 1.0
 import QtGraphicalEffects 1.0
+import QtQuick.Dialogs 1.2
+import QtQuick.Controls.Material 2.12
 import "./QML/Pane"
 import "./QML/Dialog"
 
@@ -34,6 +37,7 @@ Rectangle {
         property alias rootBackground_mainBobyPaneFlag: rootBackground.mainBobyPaneFlag
 
         property alias subMenuPane_width: subMenuMainBoobyLine.x
+        property alias jsonFileButton_jsonFileUrl: jsonFileButton.jsonFileUrl
     }
 
 
@@ -112,11 +116,19 @@ Rectangle {
                 }
             }
 
+
+
             SubMenuPane{
                 id:subMenuPane
                 width: subMenuMainBoobyLine.x
                 height: parent.height
             }
+            StackView{       //真他妈贱 这个qml的bug只能当一个全局对象
+                id:controlMenuStackView
+                anchors.fill: subMenuPane
+                enabled: false
+            }
+
 
             //标题栏
             TitlePane{
@@ -179,6 +191,7 @@ Rectangle {
                     margins: 10
                     topMargin: 0
                 }
+                //property alias subMenuPane_controlMenuStackView: subMenuPane.controlMenuStackView
             }
 
         }
@@ -189,6 +202,58 @@ Rectangle {
 
     Snackbar{
         id: snackbar
+    }
+    SysDialog{
+        id:sysDialog
+        width: 500
+        height: 350
+        title: "系统菜单"
+
+        Button{
+            id: jsonFileButton
+            property url jsonFileUrl: ""
+            anchors.centerIn: parent
+            text: "选择窗口json文件"
+            Material.background:  "#7b40f2"
+            Material.foreground: "white"
+            onClicked: {
+                jsonFileDialog.open()
+            }
+            FileDialog {
+                id: jsonFileDialog
+                title: "Please choose a file"
+                folder: shortcuts.desktop
+                nameFilters: ["json文件 (*.json)"]
+                onAccepted: {
+                    jsonFileButton.jsonFileUrl = jsonFileDialog.fileUrl
+
+                    //console.log("You chose: " + jsonFileDialog.fileUrls)
+                    jsonFileDialog.close()
+                }
+                onRejected: {
+                    //console.log("Canceled")
+                    //Qt.quit()
+                }
+            }
+        }
+
+        function buttonClicked(label){
+            if(label==="确定"){
+                rViewManager.setJsonFile(jsonFileButton.jsonFileUrl)
+                sysDialog.close()
+            }else if(label === "取消")
+            {
+                sysDialog.close()
+            }
+        }
+        Component.onCompleted: {
+                   sysDialog.footerButtonClicked.connect(buttonClicked)
+                   if(jsonFileButton.jsonFileUrl != "")
+                   {
+                       rViewManager.setJsonFile(jsonFileButton.jsonFileUrl)
+                   }
+                }
+
     }
 
 // 这个玩意有点吃cpu

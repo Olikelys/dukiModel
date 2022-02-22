@@ -80,25 +80,25 @@ Item {
             img : "qrc:/Images/Control/btu.png"
             name : "按钮"
             DragDoneShow:"待开发，感谢理解"
-            type:"类型xx"
+            path:"类型xx"
         }
         ListElement{
             img : "qrc:/Images/Control/switch.png"
             name : "开关"
             DragDoneShow:"待开发，感谢理解"
-            type:"类型xx"
+            path:"类型xx"
         }
         ListElement{
             img : "qrc:/Images/Control/slider.png"
             name : "滑块"
             DragDoneShow:"待开发，感谢理解"
-            type:"类型xx"
+            path:"类型xx"
         }
         ListElement{
             img : "qrc:/Images/Control/light.png"
             name : "灯"
             DragDoneShow:"待开发，感谢理解"
-            type:"类型xx"
+            path:"类型xx"
         }
     }
     ListModel{
@@ -107,25 +107,25 @@ Item {
             img : "qrc:/Images/Control/image.png"
             name : "图像"
             DragDoneShow:"待开发，感谢理解"
-            type:"类型xx"
+            path:"类型xx"
         }
         ListElement{
             img : "qrc:/Images/Control/graph.png"
             name : "曲线"
             DragDoneShow:"待开发，感谢理解"
-            type:"类型xx"
+            path:"类型xx"
         }
         ListElement{
             img : "qrc:/Images/Control/waterprogress.png"
-            name : "进度条"
-            DragDoneShow:"待开发，感谢理解"
-            type:"类型xx"
+            name : "能量槽"
+            DragDoneShow:"已创建水纹能量槽"
+            path:"qrc:/Controls/RWavyProgress/RWavyProgress.qml"
         }
         ListElement{
             img : "qrc:/Images/Control/gauge.png"
             name : "仪表"
             DragDoneShow:"待开发，感谢理解"
-            type:"类型xx"
+            path:"类型xx"
         }
     }
     Item{
@@ -179,7 +179,7 @@ Item {
                 Drag.imageSource:img
                 Drag.mimeData: {
                     "DragDoneShow":DragDoneShow,
-                    "type":type
+                    "path":path
                 }
 
                 MouseArea{
@@ -221,7 +221,7 @@ Item {
                 Drag.imageSource:img
                 Drag.mimeData: {
                     "DragDoneShow":DragDoneShow,
-                    "type":type
+                    "path":path
                 }
 
                 MouseArea{

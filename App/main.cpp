@@ -88,8 +88,7 @@ int main(int argc, char *argv[])
     RModelManager::Instance()->originModel->addROrigin(test37);
     RModelManager::Instance()->originModel->addROrigin(test38);
 
-    QString itype = "long";QString iname = "long"; quint8 eee = 0x09;
-    qDebug()<<RModelManager::Instance()->originModel->SequentiaSearch( eee ,iname);
+
 
 
     TaoFrameLessView view;
@@ -100,6 +99,7 @@ int main(int argc, char *argv[])
     view.rootContext()->setContextProperty("globalState",&globalState);
     view.rootContext()->setContextProperty("taoQuickImagePath", TaoQuickImagePath);
     view.rootContext()->setContextProperty("view", &view);
+    view.rootContext()->setContextProperty("rViewManager",bridge.rViewManager);
     view.rootContext()->setContextProperty("rModeManager",RModelManager::Instance());
     //view.rootContext()->setContextProperty("log4Qml",&log4qml);
     //导包

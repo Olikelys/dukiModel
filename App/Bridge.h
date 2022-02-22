@@ -3,6 +3,7 @@
 #include <QObject>
 #include "RProEngManager.h"
 #include "RModelManager.h"
+#include "RViewManager.h"
 
 
 /*
@@ -24,6 +25,7 @@ public: int  ResetConnect();
 
 public: RProEngManager *rProEngManager = nullptr;
 public: RModelManager  *rModelManager  = nullptr;
+public: RViewManager   *rViewManager  = nullptr;
 
 };
 

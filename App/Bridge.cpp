@@ -13,6 +13,7 @@ Bridge::Bridge(QObject *parent)
      rProEngManager = new RProEngManager(this);
      rModelManager  = new RModelManager(this);
      rModelManager->setROriginModel(new ROriginModel);
+     rViewManager   = new RViewManager();
      //下面连接各种 信号 槽
 
      //这个是解析出一组数据后扔到 模型

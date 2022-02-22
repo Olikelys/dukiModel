@@ -217,6 +217,7 @@ Item {
                 id:dTD_MouseArea
                 anchors.fill: parent
                 hoverEnabled: true
+
             }
 
             Row{

@@ -10,6 +10,9 @@ import "qrc:/Controls"
 
 Item {
     id:mainBobyPane
+
+
+
     Rectangle{
         id:mBPI_Rectangel
         anchors.fill: parent
@@ -42,6 +45,7 @@ Item {
             if(drop.proposedAction == Qt.CopyAction){
                 drop.acceptProposedAction()
                 snackbar.open(drop.getDataAsString("DragDoneShow"))
+                createControl(drop.getDataAsString("path"),{"x":drop.x,"y":drop.y})
                 //snackbar.open("拖拽完成"+drop.x+drop.y+drop.getDataAsString("DragDoneShow")+drop.getDataAsString("type"))
                 //new 一个新的对象
                 //var obj =Qt.createComponent(contentsPath+drop.getDataAsString("ual")).createObject(platformBobyItem,{"x":drop.x,"y":drop.y});
@@ -51,13 +55,48 @@ Item {
     }
 
 
-    ResizableRectangle{
 
-    }
+
+
     RWavyProgress{
 
     }
 
 
+    Item {
+        id: allControlsItem
+        anchors.fill: parent
+        Button{
+            anchors.bottom: parent.bottom
+            onClicked: {
+                console.log(allControlsItem.children.length )
+                //allControlsItem.children[0].background = "red"
+            }
+
+        }
+
+    }
+
+
+
+
+    function createControl(path,allctx)
+    {
+
+        if(allctx.x>=0 && allctx.y>=0)
+        {
+            console.debug("我在创建没有参数的控件:"+"路径"+path)
+            var obj = Qt.createComponent(path).createObject(allControlsItem)
+            obj.x = allctx.x
+            obj.y = allctx.y
+        }
+        else{
+            var obj = Qt.createComponent(path).createObject(allControlsItem,{"allctx":allctx})
+            obj.setAll_ctx(allctx)
+        }
+
+
+
+    }
 
 }
