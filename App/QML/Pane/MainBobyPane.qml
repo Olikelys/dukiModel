@@ -46,40 +46,24 @@ Item {
                 drop.acceptProposedAction()
                 snackbar.open(drop.getDataAsString("DragDoneShow"))
                 createControl(drop.getDataAsString("path"),{"x":drop.x,"y":drop.y})
-                //snackbar.open("拖拽完成"+drop.x+drop.y+drop.getDataAsString("DragDoneShow")+drop.getDataAsString("type"))
-                //new 一个新的对象
-                //var obj =Qt.createComponent(contentsPath+drop.getDataAsString("ual")).createObject(platformBobyItem,{"x":drop.x,"y":drop.y});
             }
 
         }
     }
 
-
-
-
-
-    RWavyProgress{
-
-    }
-
-
+    //一个装所有控件的容器
     Item {
         id: allControlsItem
         anchors.fill: parent
-        Button{
-            anchors.bottom: parent.bottom
-            onClicked: {
-                console.log(allControlsItem.children.length )
-                //allControlsItem.children[0].background = "red"
-            }
-
+        Component.onCompleted: {
+            readAllJson()
         }
-
     }
 
 
 
 
+    //动态创建组件 参数只有x和y的是从左边拖过来创建的  有全部参数的是从json文件解析创建的
     function createControl(path,allctx)
     {
 
@@ -94,9 +78,38 @@ Item {
             var obj = Qt.createComponent(path).createObject(allControlsItem,{"allctx":allctx})
             obj.setAll_ctx(allctx)
         }
+    }
+    //读取json配置文件
+    function readAllJson()
+    {
+        var jsonString =rViewManager.readJsonFile()  //其实是字符串需要格式化为json
+        var all = JSON.parse(jsonString)
+        for(var i=0 ;i<all.widget.length;i++)
+        {
+            createControl(all.widget[i].basic.path,all.widget[i])
+        }
+        snackbar.open("读取配置文件成功")
+    }
 
+    //获取全部widget的json参数
+    function getAllWidget()
+    {
+        var widget =[]
 
-
+        for( var i=0 ; i<allControlsItem.children.length;i++)
+        {
+            widget.push(allControlsItem.children[i].getAll_ctx())
+        }
+        return widget
+    }
+    //保存 窗口配置文件为json包括widget参数和其他信息
+    function saveAllToJson( allwidget)
+    {
+        var all ={}
+        all.name = "i name"
+        all.widget = allwidget
+        var jsonfile =JSON.stringify(all)
+        rViewManager.writeJsonFile(jsonfile)
     }
 
 }

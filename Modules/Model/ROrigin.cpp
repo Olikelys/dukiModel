@@ -80,6 +80,10 @@ QString ROrigin::name() const
 {
     return m_name;
 }
+QString &ROrigin::name()
+{
+    return m_name;
+}
 QString ROrigin::val() const
 {
     return m_val;

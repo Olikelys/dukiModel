@@ -151,6 +151,7 @@ Item {
             }
             btnImgUrl: "qrc:/Images/Window/window-close.png"
             onClicked: {
+                mainBobyPane.saveAllToJson(mainBobyPane.getAllWidget())
                 view.close()
             }
         }

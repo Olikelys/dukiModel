@@ -12,7 +12,7 @@ Rectangle {
 
     property string path: ""
     property string controlType: ""
-    property string name: "右键双击打开菜单"
+    property string name: "右键双击改名字"
     property bool borderVisble: true               //边框是否可见
     property bool nameVisble: true
     x :100
@@ -20,14 +20,21 @@ Rectangle {
     width:   250
     height:  250
     rotation: 0
-
-    signal clicked(real x, real y)
-    signal rightDoubleClicked(real x, real y)
-    signal leftDoubleClicked(real x, real y)
-
     //内部属性
     property color resizeBordercolor: "red"        //边框颜色
     property bool isMenu: false
+
+
+    //对外信号
+    signal clicked(real x, real y)
+    signal rightDoubleClicked(real x, real y)
+    signal leftDoubleClicked(real x, real y)
+    signal rectAndRotation(int type,int val)   //实时修改这五个参数
+    onXChanged:  if(isMenu){rectAndRotation(0,x)}
+    onYChanged:  if(isMenu){rectAndRotation(1,y)}
+    onWidthChanged: if(isMenu){rectAndRotation(2,width)}
+    onHeightChanged: if(isMenu){rectAndRotation(3,height)}
+    onRotationChanged: if(isMenu){rectAndRotation(4,rotation)}
     /****************         基类 拥有的上下文
     controlType:控件类型
     name:

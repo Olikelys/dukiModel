@@ -8,11 +8,13 @@ ResizableRectangle {
     id:rWavyProgress
     width: 200
     height: 240
+    property var menuObj: null
     property var allctx: {null}
-    property string originType: "uu"
+    property string originType: "int"
     property string originName: "uu"
     property real minVal: 1.0
     property real maxVal: 101.0
+    property real realval: 10
 
     path: "qrc:/Controls/RWavyProgress/RWavyProgress.qml"   //控件的路径不是菜单路径
     controlType:"RWavyProgress"
@@ -22,7 +24,9 @@ ResizableRectangle {
         anchors.centerIn: parent
         width: parent.width
         height: width
-        value: 0.7
+        value: realval<minVal ? 0 :
+               realval>maxVal ? 1 :
+               realval/(maxVal-minVal)
     }
     Text {
         id: rWavyProgressName
@@ -37,31 +41,52 @@ ResizableRectangle {
 
     }
 
+
    //右键双击
     onRightDoubleClicked: {
+        if(!rWavyProgress.isMenu){
         controlMenuStackView.enabled = true
         rWavyProgress.isMenu = true
-        controlMenuStackView.push("qrc:/Controls/RWavyProgress/RWavyProgressMenu.qml",{"allctx":getAll_ctx()} )
-    }
-
-    Button{
-        onClicked:   {
-           // var eee =JSON.stringify( getAll_ctx())
-          // console.debug(eee)
-           // rViewManager.writeJson( eee)
-           var jsonfile =rViewManager.readJsonFile()  //其实是字符串需要格式化为json
-            console.log( jsonfile)
-            var jjj =JSON.parse(jsonfile)
-            console.log(  jjj )
-            console.log(jjj.basic.path)
-           // mainBobyPane.createControl(path,getAll_ctx())
-
-            //var yy = [{"11":2,"dd":3},{"df":4}]
-            //console.debug(yy.length)
+        var component  = Qt.createComponent("qrc:/Controls/RWavyProgress/RWavyProgressMenu.qml")
+        if(component.status === Component.Ready){
+                  menuObj = component.createObject(rWavyProgress,{"allctx": getAll_ctx()})
+                  controlMenuStackView.push(menuObj)
+        }//推到staackivew  但是生命周期还是这里管所以关闭菜单的时候随带销毁
+        //绑定信号  删除的时候解绑
+        rWavyProgress.rectAndRotation.connect(menuObj.onRectAndRotationed)
+        menuObj.backAllCtx.connect(onBackAllCtxed)
         }
 
     }
 
+    //菜单返回的ctx
+    function onBackAllCtxed(type,val)
+    {
+        rWavyProgress.isMenu = false
+        rWavyProgress.rectAndRotation.disconnect(menuObj.onRectAndRotationed)
+        menuObj.backAllCtx.disconnect(rWavyProgress.onBackAllCtxed)
+        menuObj.destroy()
+        setAll_ctx(val)
+        //然后根据的值重新绑定  model
+        bindOriginModle()
+        console.debug(realval)
+        if(type === 0){  //关闭菜单
+            snackbar.open("已关闭菜单")
+        }
+        else{//删除这个控件
+            snackbar.open("已删除")
+            rWavyProgress.destroy()
+        }
+    }
+    function bindOriginModle()
+    {
+        console.debug("模型总行数"+rModeManager.rOriginModel.rowCount())
+       var index = rModeManager.rOriginModel.searchTypeName(originType,originName)
+        console.debug("这条数据行数"+index)
+       //rWavyProgress.realval = Qt.binding(function(){return rModeManager.rOriginModel.getOrigin(index).val;});
+        rWavyProgress.realval =rModeManager.rOriginModel.getOrigin(index).val;
+        console.debug("进行绑定"+rWavyProgress.realval)
+    }
 
     function getAll_ctx()
     {
@@ -77,7 +102,7 @@ ResizableRectangle {
                 "maxVal": maxVal
             }
         }
-        console.debug(ctx.basic.name)
+        //console.debug("名字"+ctx.basic.name)
         return ctx
     }
     function setAll_ctx(ctx)
@@ -88,9 +113,12 @@ ResizableRectangle {
         minVal = ctx.argument.minVal
         maxVal = ctx.argument.maxVal
 
+
     }
 
 
+    //销毁后输出表示安全
+    Component.onDestruction: print("Destroying RWavyprogress ")
 
 
 

@@ -7,16 +7,14 @@ import QtQuick.Controls.Material 2.12
 Column{
     id:originMenu
     height: opened ? 80 :40
+    clip: true
     anchors{
         right: parent.right
         rightMargin: 10
         left: parent.left
         leftMargin: 10
     }
-    //spacing: 10
     property bool opened: true
-    clip: true
-
     Rectangle{
         width: originMenu.width
         height: 30
@@ -61,9 +59,13 @@ Column{
             }
             Material.background: "transparent"
             Material.foreground: "white"
-            model:["type1","type2","type3"]
+            model:typeMode
             font.bold: true
             font.pixelSize: 20
+            onPressedChanged: {
+                model = typeModel
+                console.debug("type按下了")
+            }
         }
         ComboBox{
             id:originName
@@ -73,9 +75,15 @@ Column{
             }
             Material.background: "transparent"
             Material.foreground: "white"
-            model:["源1","源2","源3"]
+            model:nameMode
             font.bold: true
             font.pixelSize: 20
+            onPressedChanged: {
+                //当按下的时候对模型请求 有哪些这个类型的变量放回变量名列表
+                //model = typeModel
+                model = rModeManager.rOriginModel.TypeFilter(originType.currentText)//报错是  js引擎默认函数开头不能大写但是这个不影响工作
+                console.debug("name按下了")
+            }
         }
     }
 
@@ -90,8 +98,8 @@ Column{
     }
     function setOrigin_ctx(ctx)
     {
-        originType.model = [ctx.type]
-        originName.model = [ctx.name]
+        originType.model=[ctx.type]
+        originName.model=[ctx.name]
     }
 }
 

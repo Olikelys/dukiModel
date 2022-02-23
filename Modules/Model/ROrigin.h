@@ -33,6 +33,7 @@ public:
     QString type() const;
     QString date() const;
     QString name() const;
+    QString &name() ;
     QString val()  const;
     void setType(const QString &type);
     void setDate(const QString &date);

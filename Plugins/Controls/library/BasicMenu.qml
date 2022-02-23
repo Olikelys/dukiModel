@@ -6,11 +6,13 @@ import QtQuick.Controls.Material 2.12
 
 
 Item {
-
+    id:basicMenu
     //clip: true
     width: parent.width
     implicitHeight: cITI_BacisMenu.opened ? 390 : 190
 
+    signal closeMenu()       //点击关闭按钮触发
+    signal deleteMenu()      //点击删除按钮触发
 
 
     property string path: ""
@@ -64,14 +66,16 @@ Item {
              icon.color:"transparent"
              icon.width: 30
              icon.height: 30
-             onClicked:{
-                 snackbar.open("已关闭")
-                 if(controlMenuStackView.depth === 1){
-                     controlMenuStackView.enabled = false
-                     controlMenuStackView.clear()
-                 }
-                 else{
-                     controlMenuStackView.pop()
+             onClicked:{           
+                 basicMenu.closeMenu()
+             }
+             ToolTip{
+                 visible: parent.hovered
+                 delay: 800
+                 text: "关闭菜单后配置生效"
+                 background: Rectangle{
+                     color: "#7f7f7f"
+                     radius: 3
                  }
              }
         }
@@ -128,7 +132,7 @@ Item {
                  icon.width:24
                  icon.height: 24
                  onClicked:{
-                     snackbar.open("还没有东西可以放在设置里面")
+                     basicMenu.deleteMenu()
                  }
             }
             Text{

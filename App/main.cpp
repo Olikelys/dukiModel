@@ -53,8 +53,8 @@ int main(int argc, char *argv[])
     ROrigin *test23 = new ROrigin(RUCHAR,"00:22","uchar",uchar(0xff));
     ROrigin *test24 = new ROrigin(RSHORT,"00:22","short",short('e'));
     ROrigin *test25 = new ROrigin(RUSHORT,"00:22","ushort",ushort('e'));
-    ROrigin *test26 = new ROrigin(RINT,"00:22","int",int(55));
-    ROrigin *test27 = new ROrigin(RUINT,"00:22","uint",uint(87));
+    ROrigin *test26 = new ROrigin(RINT,"00:22","Int",int(20));
+    ROrigin *test27 = new ROrigin(RUINT,"00:22","Uint",uint(87));
     ROrigin *test28 = new ROrigin(RLONG,"00:22","long",QVariant::fromValue(long(888)));
     ROrigin *test29 = new ROrigin(RULONG,"00:22","ulong",QVariant::fromValue(ulong(444)) );
     ROrigin *test39 = new ROrigin(RFLOAT,"00:22","float",float(44.5));
@@ -89,7 +89,12 @@ int main(int argc, char *argv[])
     RModelManager::Instance()->originModel->addROrigin(test38);
 
 
-
+    ROrigin *test50 = new ROrigin(RINT,"00:22","Int1",int(40));
+    ROrigin *test51 = new ROrigin(RINT,"00:22","Int2",int(60));
+    ROrigin *test52 = new ROrigin(RINT,"00:22","Int3",int(80));
+    RModelManager::Instance()->originModel->addROrigin(test50);
+    RModelManager::Instance()->originModel->addROrigin(test51);
+    RModelManager::Instance()->originModel->addROrigin(test52);
 
     TaoFrameLessView view;
     view.setMinimumSize({ 800, 600 });

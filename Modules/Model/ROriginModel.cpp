@@ -1,11 +1,11 @@
 #include "ROriginModel.h"
 #include <QDebug>
 #include "RModelManager.h"
-ROriginModel::ROriginModel(QObject *parent)
-    : QAbstractListModel(parent)
-{
+//ROriginModel::ROriginModel(QObject *parent)
+//    : QAbstractListModel(parent)
+//{
 
-}
+//}
 ROriginModel::~ROriginModel()
 {
     qDeleteAll(m_ROrigins);
@@ -116,6 +116,7 @@ void ROriginModel::addROrigin( ROrigin *rorigin)
 
 int ROriginModel::SequentiaSearch( const QString & type ,const QString & name)const
 {
+
     for(int index =0; index < m_ROrigins.count();index++)
     {
         if(m_ROrigins[index]->name()  == name )
@@ -127,6 +128,7 @@ int ROriginModel::SequentiaSearch( const QString & type ,const QString & name)co
             }
         }
     }
+
     return -1;
 }
 int ROriginModel::SequentiaSearch(const quint8 & type ,const QString & name)const
@@ -144,6 +146,60 @@ int ROriginModel::SequentiaSearch(const quint8 & type ,const QString & name)cons
     }
     return -1;
 }
+int ROriginModel::searchTypeName(QString type,QString name)
+{
+    beginResetModel();
+    for(int index =0; index < m_ROrigins.count();index++)
+    {
+        if(m_ROrigins[index]->type()  == type )
+        {
+            if(m_ROrigins[index]->name() == name)
+            {
+                return index;
+                qDebug()<<index;
+            }
+        }
+    }
+    endResetModel();
+    return 3;
+}
+
+QStringList  ROriginModel::TypeFilter(QString type)
+{
+    QStringList  tempStringList;
+    beginResetModel();
+    for(int index =0; index < m_ROrigins.count();index++)
+    {
+        if(m_ROrigins[index]->type()  == type )
+        {
+             tempStringList<<m_ROrigins[index]->name();
+             //qDebug()<<tempStringList;
+        }
+    }
+    endResetModel();
+    return tempStringList;
+}
+
+
+QVariant ROriginModel::getOrigin(int index)
+{
+    qDebug()<<"getOrigin获取指针";
+    ROrigin *temp = m_ROrigins[index];
+    return QVariant::fromValue(temp);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 int ROriginModel::UpDateVal(const int index , const QString time ,const QVariant  val)
@@ -183,3 +239,6 @@ int ROriginModel::ROriginModel_unPackROrigin(ROrigin *tempOrigin)
     }
     return 0;
 }
+
+
+

@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_ROriginModel_t {
-    QByteArrayData data[15];
-    char stringdata0[143];
+    QByteArrayData data[18];
+    char stringdata0[179];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -42,17 +42,21 @@ QT_MOC_LITERAL(6, 72, 7), // "rorigin"
 QT_MOC_LITERAL(7, 80, 15), // "SequentiaSearch"
 QT_MOC_LITERAL(8, 96, 4), // "type"
 QT_MOC_LITERAL(9, 101, 4), // "name"
-QT_MOC_LITERAL(10, 106, 9), // "UpDateVal"
-QT_MOC_LITERAL(11, 116, 5), // "index"
-QT_MOC_LITERAL(12, 122, 4), // "time"
-QT_MOC_LITERAL(13, 127, 3), // "val"
-QT_MOC_LITERAL(14, 131, 11) // "QByteArray*"
+QT_MOC_LITERAL(10, 106, 14), // "searchTypeName"
+QT_MOC_LITERAL(11, 121, 9), // "UpDateVal"
+QT_MOC_LITERAL(12, 131, 5), // "index"
+QT_MOC_LITERAL(13, 137, 4), // "time"
+QT_MOC_LITERAL(14, 142, 3), // "val"
+QT_MOC_LITERAL(15, 146, 11), // "QByteArray*"
+QT_MOC_LITERAL(16, 158, 10), // "TypeFilter"
+QT_MOC_LITERAL(17, 169, 9) // "getOrigin"
 
     },
     "ROriginModel\0ROriginModel_unPackROrigin\0"
     "\0ROrigin*\0tempOrigin\0addROrigin\0rorigin\0"
-    "SequentiaSearch\0type\0name\0UpDateVal\0"
-    "index\0time\0val\0QByteArray*"
+    "SequentiaSearch\0type\0name\0searchTypeName\0"
+    "UpDateVal\0index\0time\0val\0QByteArray*\0"
+    "TypeFilter\0getOrigin"
 };
 #undef QT_MOC_LITERAL
 
@@ -62,7 +66,7 @@ static const uint qt_meta_data_ROriginModel[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-       6,   14, // methods
+       9,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -70,20 +74,26 @@ static const uint qt_meta_data_ROriginModel[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    1,   44,    2, 0x0a /* Public */,
-       5,    1,   47,    2, 0x0a /* Public */,
-       7,    2,   50,    2, 0x0a /* Public */,
-       7,    2,   55,    2, 0x0a /* Public */,
-      10,    3,   60,    2, 0x0a /* Public */,
-      10,    3,   67,    2, 0x0a /* Public */,
+       1,    1,   59,    2, 0x0a /* Public */,
+       5,    1,   62,    2, 0x0a /* Public */,
+       7,    2,   65,    2, 0x0a /* Public */,
+       7,    2,   70,    2, 0x0a /* Public */,
+      10,    2,   75,    2, 0x0a /* Public */,
+      11,    3,   80,    2, 0x0a /* Public */,
+      11,    3,   87,    2, 0x0a /* Public */,
+      16,    1,   94,    2, 0x0a /* Public */,
+      17,    1,   97,    2, 0x0a /* Public */,
 
  // slots: parameters
     QMetaType::Int, 0x80000000 | 3,    4,
     QMetaType::Void, 0x80000000 | 3,    6,
     QMetaType::Int, QMetaType::QString, QMetaType::QString,    8,    9,
     QMetaType::Int, QMetaType::UChar, QMetaType::QString,    8,    9,
-    QMetaType::Int, QMetaType::Int, QMetaType::QString, QMetaType::QVariant,   11,   12,   13,
-    QMetaType::Int, QMetaType::Int, QMetaType::QString, 0x80000000 | 14,   11,   12,   13,
+    QMetaType::Int, QMetaType::QString, QMetaType::QString,    8,    9,
+    QMetaType::Int, QMetaType::Int, QMetaType::QString, QMetaType::QVariant,   12,   13,   14,
+    QMetaType::Int, QMetaType::Int, QMetaType::QString, 0x80000000 | 15,   12,   13,   14,
+    QMetaType::QStringList, QMetaType::QString,    8,
+    QMetaType::QVariant, QMetaType::Int,   12,
 
        0        // eod
 };
@@ -101,10 +111,16 @@ void ROriginModel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
             if (_a[0]) *reinterpret_cast< int*>(_a[0]) = std::move(_r); }  break;
         case 3: { int _r = _t->SequentiaSearch((*reinterpret_cast< const quint8(*)>(_a[1])),(*reinterpret_cast< const QString(*)>(_a[2])));
             if (_a[0]) *reinterpret_cast< int*>(_a[0]) = std::move(_r); }  break;
-        case 4: { int _r = _t->UpDateVal((*reinterpret_cast< const int(*)>(_a[1])),(*reinterpret_cast< const QString(*)>(_a[2])),(*reinterpret_cast< const QVariant(*)>(_a[3])));
+        case 4: { int _r = _t->searchTypeName((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2])));
             if (_a[0]) *reinterpret_cast< int*>(_a[0]) = std::move(_r); }  break;
-        case 5: { int _r = _t->UpDateVal((*reinterpret_cast< const int(*)>(_a[1])),(*reinterpret_cast< const QString(*)>(_a[2])),(*reinterpret_cast< QByteArray*(*)>(_a[3])));
+        case 5: { int _r = _t->UpDateVal((*reinterpret_cast< const int(*)>(_a[1])),(*reinterpret_cast< const QString(*)>(_a[2])),(*reinterpret_cast< const QVariant(*)>(_a[3])));
             if (_a[0]) *reinterpret_cast< int*>(_a[0]) = std::move(_r); }  break;
+        case 6: { int _r = _t->UpDateVal((*reinterpret_cast< const int(*)>(_a[1])),(*reinterpret_cast< const QString(*)>(_a[2])),(*reinterpret_cast< QByteArray*(*)>(_a[3])));
+            if (_a[0]) *reinterpret_cast< int*>(_a[0]) = std::move(_r); }  break;
+        case 7: { QStringList _r = _t->TypeFilter((*reinterpret_cast< QString(*)>(_a[1])));
+            if (_a[0]) *reinterpret_cast< QStringList*>(_a[0]) = std::move(_r); }  break;
+        case 8: { QVariant _r = _t->getOrigin((*reinterpret_cast< int(*)>(_a[1])));
+            if (_a[0]) *reinterpret_cast< QVariant*>(_a[0]) = std::move(_r); }  break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
@@ -157,13 +173,13 @@ int ROriginModel::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 6)
+        if (_id < 9)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 9;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 6)
+        if (_id < 9)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 9;
     }
     return _id;
 }

@@ -16,7 +16,7 @@ class ROriginModel : public QAbstractListModel
 
 public:
     using QAbstractListModel::QAbstractListModel;
-    explicit ROriginModel(QObject *parent = nullptr);
+    //explicit ROriginModel(QObject *parent = nullptr);
     ~ROriginModel();
 
 
@@ -37,8 +37,11 @@ public slots :
     void addROrigin( ROrigin *rorigin);       //添加一条数据
     Q_INVOKABLE int SequentiaSearch(const QString & type ,const QString & name)const;   //顺序查找一条数据
     Q_INVOKABLE int SequentiaSearch(const quint8 & type ,const QString & name)const;
+    Q_INVOKABLE int searchTypeName(QString type,QString name);          //妈的这个是真的操蛋 js不支持函数重载排查了好久
     Q_INVOKABLE int UpDateVal(const int index , const QString time ,const QVariant  val);
     Q_INVOKABLE int UpDateVal(const int index , const QString time , QByteArray * val);
+    Q_INVOKABLE QStringList  TypeFilter(QString type);
+    Q_INVOKABLE QVariant getOrigin(int index);
 
 
 private:

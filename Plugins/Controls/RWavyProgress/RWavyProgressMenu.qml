@@ -10,10 +10,36 @@ Item {
 
    property var allctx: {null}
 
+   signal backAllCtx(int type ,var allctx)
+
    BasicMenu{
        id:basicMenu
        anchors{
            top: parent.top
+       }
+       onCloseMenu: {       //关闭菜单的时候 删除这个菜单
+           backAllCtx(0,getAll_ctx())
+           if(controlMenuStackView.depth === 1){
+               controlMenuStackView.enabled = false
+               controlMenuStackView.clear()
+
+           }
+           else{
+               controlMenuStackView.pop()
+           }
+
+       }
+       onDeleteMenu: {   //删除这个控件
+           backAllCtx(1,getAll_ctx())
+           if(controlMenuStackView.depth === 1){
+               controlMenuStackView.enabled = false
+               controlMenuStackView.clear()
+
+           }
+           else{
+               controlMenuStackView.pop()
+           }
+           rWavyProgressMenu.destroy()
        }
    }
    OriginMenu{
@@ -22,6 +48,7 @@ Item {
            top : basicMenu.bottom
 
        }
+       property var typeModel: ["int","uint"]
    }
    //参数设置
    Column{
@@ -195,6 +222,28 @@ Item {
    }
 
 
+
+   //当  控件的 x y width height or改变的时候
+   function onRectAndRotationed( type, val)
+   {
+       switch (type)
+       {
+           case 0: basicMenu.xx        =val ;break;
+           case 1: basicMenu.yy        =val ;break;
+           case 2: basicMenu.wwidth    =val ;break;
+           case 3: basicMenu.hheight   =val ;break;
+           case 4: basicMenu.rrotation =val ;break;
+           default: console.log("onRectAndRotationed on type ")
+       }
+   }
+
+
+
+
+
+
+
+
    //这个控件特有的
    function getArgument_ctx()
    {
@@ -202,7 +251,6 @@ Item {
            "minVal": minVal.text,
            "maxVal": maxVal.text
        }
-       console.debug(minVal.text, maxVal.text)
        return ctx
    }
    function setArgument_ctx(ctx)
@@ -223,6 +271,7 @@ Item {
    }
    function setAll_ctx(ctx)
    {
+       allctx = ctx
        basicMenu.setBasic_ctx(   ctx.basic  )
        originMenu.setOrigin_ctx(   ctx.origin )
        setArgument_ctx( ctx.argument )
@@ -235,7 +284,7 @@ Item {
        setAll_ctx(allctx)
    }
    //销毁后把上下文返回
-   Component.onDestruction: print("Destroying second item")
+   Component.onDestruction: print("Destroying RWavyprogress menu")
 
 
 
