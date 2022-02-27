@@ -181,11 +181,21 @@ QStringList  ROriginModel::TypeFilter(QString type)
 }
 
 
-QVariant ROriginModel::getOrigin(int index)
+//QVariant ROriginModel::getOrigin(int index)
+//{
+//    qDebug()<<"getOrigin获取指针";
+//    ROrigin *temp = m_ROrigins[index];
+//    return QVariant::fromValue(temp);
+//}
+ROrigin * ROriginModel::getOrigin(int index)
 {
-    qDebug()<<"getOrigin获取指针";
-    ROrigin *temp = m_ROrigins[index];
-    return QVariant::fromValue(temp);
+    return  m_ROrigins[index];
+}
+
+QVariant ROriginModel::getOriginVal(int index)
+{
+    QString temp =m_ROrigins[index]->val();
+    return temp;
 }
 
 
@@ -204,8 +214,10 @@ QVariant ROriginModel::getOrigin(int index)
 
 int ROriginModel::UpDateVal(const int index , const QString time ,const QVariant  val)
 {
+    beginResetModel();
     m_ROrigins[index]->setDate(time);
     m_ROrigins[index]->setVal(val);
+    endResetModel();
     return 0;
 }
 int ROriginModel::UpDateVal(const int index , const QString time , QByteArray * val)
@@ -232,9 +244,7 @@ int ROriginModel::ROriginModel_unPackROrigin(ROrigin *tempOrigin)
     }
     else
     {
-       beginResetModel();
        UpDateVal(tempindex,tempOrigin->date(),tempOrigin->val() );
-       endResetModel();
        delete  tempOrigin;
     }
     return 0;

@@ -64,7 +64,7 @@ Column{
             font.pixelSize: 20
             onPressedChanged: {
                 model = typeModel
-                console.debug("type按下了")
+                //console.debug("type按下了")
             }
         }
         ComboBox{
@@ -82,7 +82,7 @@ Column{
                 //当按下的时候对模型请求 有哪些这个类型的变量放回变量名列表
                 //model = typeModel
                 model = rModeManager.rOriginModel.TypeFilter(originType.currentText)//报错是  js引擎默认函数开头不能大写但是这个不影响工作
-                console.debug("name按下了")
+               // console.debug("name按下了")
             }
         }
     }

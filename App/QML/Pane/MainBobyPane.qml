@@ -1,7 +1,7 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.12
 import TaoQuick 1.0
-import QtQuick.Shapes 1.15
+//import QtQuick.Shapes 1.15
 import QtGraphicalEffects 1.15
 import "qrc:/Qml"
 import "qrc:/Controls"
@@ -59,8 +59,6 @@ Item {
             readAllJson()
         }
     }
-
-
 
 
     //动态创建组件 参数只有x和y的是从左边拖过来创建的  有全部参数的是从json文件解析创建的

@@ -1,6 +1,7 @@
 #include "ROrigin.h"
 #include "RProEng.h"
 #include <QDebug>
+#include <QObject>
 
 ROrigin::ROrigin()
 {
@@ -88,9 +89,14 @@ QString ROrigin::val() const
 {
     return m_val;
 }
+QVariant ROrigin::agencyVal()const
+{
+    return mval;
+}
 void ROrigin::setType(const QString &type)
 {
     m_type = type;
+    emit typeChanged();
 }
 void ROrigin::setDate(const QString &date)
 {
@@ -100,10 +106,13 @@ void ROrigin::setDate(const QString &date)
 void ROrigin::setName(const QString &name)
 {
     m_name = name;
+    emit nameChanged();
 }
 void ROrigin::setVal(const QString &val)
 {
     m_val = val;
+    emit valChanged();
+
 }
 void ROrigin::setVal(const QVariant val )
 {
@@ -131,4 +140,34 @@ void ROrigin::setVal(const QVariant val )
     case RUINT64:    { m_val = mval.toString();           }break;
     default:         { m_val = mval.toString();           }
     }
+    emit agencyValChanged(mval);
 }
+
+
+
+
+//bool ROrigin::ConnectROrigin(QString type,QString name)
+//{
+//    int index = RModelManager::Instance()->rOriginModel()->SequentiaSearch(type,name);
+//    if("noType" == m_type && "noName" == m_name)//如果还没有绑定
+//    {
+//        connect(RModelManager::Instance()->rOriginModel()->getOrigin(index), \
+//                SIGNAL(valAgencyChanged(QString)), \
+//                this, \
+//                SLOT(setRoriginVal(QString)) );
+//        //setType(type);
+//        //setName(name);
+//    }
+//    else {          //如果之前绑定了
+//       // disconnect()
+//    }
+//    return 1;
+//}
+
+
+//void ROrigin::setRoriginVal(QString val)
+//{
+//    m_val = val;
+//    emit valChanged();
+//    emit valAgencyChanged(val);
+//}

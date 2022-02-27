@@ -210,17 +210,7 @@ Item {
            }
        }
 
-//       Button{
-//           onClicked: {
-//               var eee = getArgument_ctx()
-//               eee.minVal = 20
-//               eee.maxVal = 120
-//               console.debug(eee.minVal)
-//               setArgument_ctx(eee)
-//           }
-//       }
    }
-
 
 
    //当  控件的 x y width height or改变的时候

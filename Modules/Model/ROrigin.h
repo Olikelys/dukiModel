@@ -9,6 +9,11 @@
  *
  * **************************************************/
 
+
+
+#define RORIGIN_INITIALIZA {qmlRegisterType<ROrigin>("ROrigin",1,0,"ROrigin");}
+
+
 #include <QObject>
 #include <QVariant>
 
@@ -19,6 +24,13 @@ class ROrigin : public QObject
     Q_PROPERTY(QString date READ date WRITE setDate NOTIFY dateChanged)
     Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
     Q_PROPERTY(QString val READ val WRITE  setVal NOTIFY valChanged)
+
+
+
+//    /***       代理专用函数   **************************/
+//public:
+//    Q_INVOKABLE bool ConnectROrigin(QString type,QString name);
+//    slots void setRoriginVal(QString val);
 
 public:
     explicit ROrigin();
@@ -35,6 +47,7 @@ public:
     QString name() const;
     QString &name() ;
     QString val()  const;
+    QVariant agencyVal()const;
     void setType(const QString &type);
     void setDate(const QString &date);
     void setName(const QString &name);
@@ -46,6 +59,11 @@ signals:
     void nameChanged();
     void valChanged();
 
+    void agencyValChanged(QVariant& val); //这个是给代理用的信号
+
+
+
+
 private:
     QString m_type;                //这里 type 可以整成键值对的那种
     QString m_date;
@@ -55,6 +73,7 @@ private:
     quint8 mtype;
     QVariant mval;
     QVariant * mpval = nullptr;
+
 
 
 };

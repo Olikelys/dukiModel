@@ -8,7 +8,6 @@
 #include <QQuickStyle>
 
 
-
 #include "Frameless/TaoFrameLessView.h"
 #include "QmlLog4/log4qml.h"
 #include "RModulesConfig.h"

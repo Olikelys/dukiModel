@@ -41,11 +41,20 @@ public slots :
     Q_INVOKABLE int UpDateVal(const int index , const QString time ,const QVariant  val);
     Q_INVOKABLE int UpDateVal(const int index , const QString time , QByteArray * val);
     Q_INVOKABLE QStringList  TypeFilter(QString type);
-    Q_INVOKABLE QVariant getOrigin(int index);
+    //Q_INVOKABLE QVariant getOrigin(int index);  //妈的返回一个私有对象的指针给js用太危险了程序直接崩了
+    Q_INVOKABLE ROrigin* getOrigin(int index);
+    Q_INVOKABLE QVariant getOriginVal(int index); //这样  压根不能更新  妈的我加一个代理
+
+//    Q_PROPERTY(QStringList roriginAgency READ roriginAgency WRITE setRoriginAgency NOTIFY roriginAgencyChanged)
+//    QString rorginAgency();
+//    signals: void roriginAgencyChanged();
+//    int
+
 
 
 private:
     QList<ROrigin *> m_ROrigins;
+
 };
 
 #endif // RORIGINMODEL_H

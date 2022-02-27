@@ -56,7 +56,9 @@ Item{
             font.pixelSize: textSize
             font.family: textFamily
             color:textColor
-            text: value*100+"%"
+            //text: value.toFixed(3)*100+"%"
+            //text: Math.round(value*Math.pow(10,3))/Math.pow(10,3)*100+"%"
+            text: (parseInt(value*1000)/1000).toFixed(3)*100+"%"
         }
 
         Timer{

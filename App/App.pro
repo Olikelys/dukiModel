@@ -1,5 +1,5 @@
 TEMPLATE = app   #工程类型
-TARGET = dukiModel-app   #目标文件名称名
+TARGET = dukiModel   #目标文件名称名
 DESTDIR = ./exe       #目标文件位置
 
 #RC_ICONS =./Images/logo-redblue-128.ico

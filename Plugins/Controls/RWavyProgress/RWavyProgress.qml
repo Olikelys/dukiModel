@@ -3,6 +3,7 @@ import QtQuick.Controls 2.12
 import "qrc:/Controls/library"
 import "qrc:/Qml"
 import "qrc:/QML/Pane"
+import RLink 1.0
 
 ResizableRectangle {
     id:rWavyProgress
@@ -14,7 +15,8 @@ ResizableRectangle {
     property string originName: "uu"
     property real minVal: 1.0
     property real maxVal: 101.0
-    property real realval: 10
+    property real realval: rOriginAgency.agencyVal
+
 
     path: "qrc:/Controls/RWavyProgress/RWavyProgress.qml"   //控件的路径不是菜单路径
     controlType:"RWavyProgress"
@@ -26,7 +28,11 @@ ResizableRectangle {
         height: width
         value: realval<minVal ? 0 :
                realval>maxVal ? 1 :
-               realval/(maxVal-minVal)
+               (realval-minVal)/(maxVal-minVal)
+    }
+    ROriginAgency{
+        id:rOriginAgency
+        agencyVal:0
     }
     Text {
         id: rWavyProgressName
@@ -40,7 +46,6 @@ ResizableRectangle {
         font.bold: true
 
     }
-
 
    //右键双击
     onRightDoubleClicked: {
@@ -68,10 +73,8 @@ ResizableRectangle {
         menuObj.destroy()
         setAll_ctx(val)
         //然后根据的值重新绑定  model
-        bindOriginModle()
-        console.debug(realval)
         if(type === 0){  //关闭菜单
-            snackbar.open("已关闭菜单")
+            //snackbar.open("已关闭菜单")
         }
         else{//删除这个控件
             snackbar.open("已删除")
@@ -80,12 +83,13 @@ ResizableRectangle {
     }
     function bindOriginModle()
     {
-        console.debug("模型总行数"+rModeManager.rOriginModel.rowCount())
-       var index = rModeManager.rOriginModel.searchTypeName(originType,originName)
-        console.debug("这条数据行数"+index)
-       //rWavyProgress.realval = Qt.binding(function(){return rModeManager.rOriginModel.getOrigin(index).val;});
-        rWavyProgress.realval =rModeManager.rOriginModel.getOrigin(index).val;
-        console.debug("进行绑定"+rWavyProgress.realval)
+        if(rOriginAgency.setAgency(originType,originName) ){
+             snackbar.open("("+originType+":"+originName+")绑定成功")
+        }
+        else{
+             snackbar.open("("+originType+":"+originName+")绑定失败")
+        }
+        console.debug(rOriginAgency.agencyVal)
     }
 
     function getAll_ctx()
@@ -102,7 +106,6 @@ ResizableRectangle {
                 "maxVal": maxVal
             }
         }
-        //console.debug("名字"+ctx.basic.name)
         return ctx
     }
     function setAll_ctx(ctx)
@@ -112,7 +115,7 @@ ResizableRectangle {
         originName = ctx.origin.name
         minVal = ctx.argument.minVal
         maxVal = ctx.argument.maxVal
-
+        bindOriginModle()
 
     }
 
