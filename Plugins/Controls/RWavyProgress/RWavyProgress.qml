@@ -89,7 +89,6 @@ ResizableRectangle {
         else{
              snackbar.open("("+originType+":"+originName+")绑定失败")
         }
-        console.debug(rOriginAgency.agencyVal)
     }
 
     function getAll_ctx()
